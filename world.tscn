@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=11 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://rigidbodies/debug_spawner.gd" id="3_tlwt5"]
+[ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -17,6 +18,10 @@ size = Vector2(100, 100)
 metallic_specular = 0.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fj7yv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
+shader = ExtResource("4_aqk2v")
+shader_parameter/size = 0.2
 
 [node name="World" type="Node3D"]
 
@@ -58,4 +63,24 @@ script = ExtResource("3_tlwt5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 5)
 script = ExtResource("3_tlwt5")
 tscn_path = "res://rigidbodies/debris.tscn"
-spacing = 2
+spacing = 5
+
+[node name="Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Crosshair"]
+material = SubResource("ShaderMaterial_036b0")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

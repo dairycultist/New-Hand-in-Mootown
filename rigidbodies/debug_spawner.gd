@@ -12,4 +12,4 @@ func _ready() -> void:
 			var child = tscn.instantiate()
 			add_child(child)
 			
-			child.global_position = global_position + Vector3(x, 0, z)
+			child.global_position = global_position + Vector3(x * spacing, 0, z * spacing)
