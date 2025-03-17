@@ -24,9 +24,11 @@ points = PackedVector3Array(0, 0.448252, 0, 0, 0.426752, -0.0493182, -0.0408938,
 
 [node name="World" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("camera")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("hold_anchor", "held", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_fj7yv")
+hold_anchor = NodePath("Camera3D/Hold Anchor")
+held = NodePath("../Chip")
 camera = NodePath("Camera3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
@@ -35,6 +37,9 @@ shape = SubResource("CapsuleShape3D_gv5m4")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Hold Anchor" type="Node3D" parent="Player/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
