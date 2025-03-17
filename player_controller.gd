@@ -1,7 +1,13 @@
 extends CharacterBody3D
 
+@export_group("GUI")
+@export var crosshair : CanvasItem
+
+@export_group("Misc")
 @export var hold_anchor : Node3D
 @export var camera : Camera3D
+
+@export_group("Movement")
 @export var mouse_sensitivity := 0.3
 @export var walk_speed := 5
 @export var jump_speed := 7
@@ -14,6 +20,8 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
+	
+	crosshair.material.set("shader_parameter/size", lerpf(crosshair.material.get("shader_parameter/size"), 0.2 if held else 0.02, delta * 10))
 	
 	if held != null:
 		# apply force that is the difference in position

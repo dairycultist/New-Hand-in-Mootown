@@ -25,9 +25,10 @@ shader_parameter/size = 0.2
 
 [node name="World" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("hold_anchor", "camera")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_fj7yv")
+crosshair = NodePath("../Crosshair/Panel")
 hold_anchor = NodePath("Camera3D/Hold Anchor")
 camera = NodePath("Camera3D")
 
