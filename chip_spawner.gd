@@ -1,6 +1,6 @@
 extends Node3D
 
-const CHIP = preload("res://chip.tscn")
+const CHIP = preload("res://rigidbodies/chip.tscn")
 
 func _ready() -> void:
 	

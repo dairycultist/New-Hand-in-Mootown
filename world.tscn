@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=13 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://chip_spawner.gd" id="3_tlwt5"]
+[ext_resource type="Script" uid="uid://cs0e3k7nlb7ax" path="res://rigidbodies/debris.gd" id="4_aqk2v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -20,6 +21,9 @@ metallic_specular = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
 albedo_color = Color(1, 0.282353, 0.431373, 1)
+rim = 0.1
+rim_tint = 1.0
+backlight = Color(0.579792, 0.561871, 0.978862, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_aqk2v"]
 
@@ -61,9 +65,12 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 script = ExtResource("3_tlwt5")
 
-[node name="Debris" type="RigidBody3D" parent="."]
+[node name="Debris" type="RigidBody3D" parent="." node_paths=PackedStringArray("mesh", "collider")]
 transform = Transform3D(0.518057, -0.623255, -0.585808, 0.855346, 0.377486, 0.354806, 0, -0.684878, 0.728658, 0.106877, 2.62143, 9.53575)
 mass = 10.0
+script = ExtResource("4_aqk2v")
+mesh = NodePath("MeshInstance3D")
+collider = NodePath("CollisionShape3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Debris"]
 material_override = SubResource("StandardMaterial3D_tlwt5")
