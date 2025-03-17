@@ -20,11 +20,11 @@ func _process(delta: float) -> void:
 		held.apply_central_force((hold_anchor.global_position - held.global_position) * 100)
 	
 	# movement
-	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		
 	if (velocity.y > -max_fall_speed):
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * 2.5 * delta
 	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_speed
@@ -41,21 +41,21 @@ func _process(delta: float) -> void:
 
 func _input(event):
 	
+	if (event.is_action_pressed("interact")):
+		
+		var ray_result = get_world_3d().direct_space_state.intersect_ray(
+			PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
+		)
+		
+		if ray_result.has("collider") and ray_result.collider is RigidBody3D:
+			held = ray_result.collider
+			held.linear_damp = 10
+	
 	if (event.is_action_released("interact")):
 		
 		if held:
 			held.linear_damp = 0
-			held.gravity_scale = 1
 			held = null
-		else:
-			var ray_result = get_world_3d().direct_space_state.intersect_ray(
-				PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
-			)
-			
-			if ray_result.has("collider") and ray_result.collider is RigidBody3D:
-				held = ray_result.collider
-				held.linear_damp = 10
-				held.gravity_scale = 0
 	
 	if event.is_action_pressed("pause"):
 		

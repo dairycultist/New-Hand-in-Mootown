@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=12 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
@@ -17,6 +17,13 @@ size = Vector2(100, 100)
 metallic_specular = 0.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_fj7yv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tlwt5"]
+albedo_color = Color(1, 0.282353, 0.431373, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aqk2v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_036b0"]
 
 [node name="World" type="Node3D"]
 
@@ -53,3 +60,14 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="ChipSpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)
 script = ExtResource("3_tlwt5")
+
+[node name="Debris" type="RigidBody3D" parent="."]
+transform = Transform3D(0.518057, -0.623255, -0.585808, 0.855346, 0.377486, 0.354806, 0, -0.684878, 0.728658, 0.106877, 2.62143, 9.53575)
+mass = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Debris"]
+material_override = SubResource("StandardMaterial3D_tlwt5")
+mesh = SubResource("CapsuleMesh_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Debris"]
+shape = SubResource("CapsuleShape3D_036b0")
