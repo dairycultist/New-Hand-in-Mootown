@@ -18,12 +18,14 @@ func _ready() -> void:
 	unique_material.albedo_color = Color.from_ok_hsl(rand.randf(), 0.7, 0.7, 1.0)
 	mesh.material_override = unique_material
 	
-	mass = 10
+	mass = 5
 	
 	match rand.randi_range(0, 3):
 		0:
 			mesh.mesh = CapsuleMesh.new()
 			collider.shape = CapsuleShape3D.new()
+			
+			mass = 10
 		1:
 			mesh.mesh = SphereMesh.new()
 			collider.shape = SphereShape3D.new()

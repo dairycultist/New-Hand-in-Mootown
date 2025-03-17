@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://rigidbodies/debug_spawner.gd" id="3_tlwt5"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
+[ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -22,6 +23,16 @@ metallic_specular = 0.0
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
 shader_parameter/size = 0.2
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
+panorama = ExtResource("5_036b0")
+
+[sub_resource type="Sky" id="Sky_pkg7o"]
+sky_material = SubResource("PanoramaSkyMaterial_dwbse")
+
+[sub_resource type="Environment" id="Environment_gbfbk"]
+background_mode = 2
+sky = SubResource("Sky_pkg7o")
 
 [node name="World" type="Node3D"]
 
@@ -85,3 +96,6 @@ material = SubResource("ShaderMaterial_036b0")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gbfbk")
