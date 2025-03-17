@@ -11,7 +11,7 @@ void vertex() {
 void fragment() {
 	
 	// sample texture (VERTEX is in view space, must go to world space)
-	float sample = texture(noise, (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz).x;
+	float sample = texture(noise, (INV_VIEW_MATRIX * vec4(VERTEX, 1.0)).xyz - NODE_POSITION_WORLD).x;
 	
 	vec3 interp_color = mix(color1, color2, step(0.5, sample));
 	
