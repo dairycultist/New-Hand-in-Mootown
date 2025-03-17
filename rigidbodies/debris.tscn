@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0tyttwg6aob5"]
+
+[ext_resource type="Script" uid="uid://cs0e3k7nlb7ax" path="res://rigidbodies/debris.gd" id="1_ect07"]
+
+[node name="Debris" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mass = 10.0
+script = ExtResource("1_ect07")
