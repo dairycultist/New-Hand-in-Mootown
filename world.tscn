@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=11 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
+[ext_resource type="Material" uid="uid://bs0d3sffpiff" path="res://chip.tres" id="3_aqk2v"]
 [ext_resource type="ArrayMesh" uid="uid://d3md5tow6swx8" path="res://chip.obj" id="3_tlwt5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
@@ -53,6 +54,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Chip"]
+material_override = ExtResource("3_aqk2v")
 mesh = ExtResource("3_tlwt5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Chip"]
