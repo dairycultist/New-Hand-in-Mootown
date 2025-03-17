@@ -8,4 +8,4 @@ the project im making for fun
 
 bring big items to the shredder (a bit wall) where they initiate a script that draws them into it slowly while shaking and throwing out chips
 
-chips are small purple~blue octahedron (if you throw them at the shredder they just tink off) which you then sell
+chips are small pink~light blue (shader!) octahedron (if you throw them at the shredder they just tink off) which you then sell
