@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=20 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
@@ -13,11 +13,19 @@
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ioo17"]
 noise_type = 3
-frequency = 0.0927
+frequency = 0.0245
 fractal_octaves = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wse8f"]
 noise = SubResource("FastNoiseLite_ioo17")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gbfbk"]
+noise_type = 0
+frequency = 0.055
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ioo17"]
+noise = SubResource("FastNoiseLite_gbfbk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -51,7 +59,7 @@ shader_parameter/water = ExtResource("7_gbfbk")
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
 script = ExtResource("1_fj7yv")
 crosshair = NodePath("../Crosshair/Panel")
 hold_anchor = NodePath("Camera3D/Hold Anchor")
@@ -69,19 +77,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Terrain" type="StaticBody3D" parent="."]
 script = ExtResource("2_gbfbk")
-SIZE = 32
-TEX = SubResource("NoiseTexture2D_wse8f")
+SIZE = 256
+TEX_REGION = SubResource("NoiseTexture2D_wse8f")
+TEX_DETAIL = SubResource("NoiseTexture2D_ioo17")
 MAT = ExtResource("3_gbfbk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="DebugSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 20, 0)
 script = ExtResource("3_tlwt5")
 
 [node name="DebugSpawner2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 20, 5)
 script = ExtResource("3_tlwt5")
 tscn_path = "res://rigidbodies/debris.tscn"
 spacing = 5
@@ -110,7 +119,5 @@ offset_bottom = 40.0
 environment = SubResource("Environment_gbfbk")
 
 [node name="Water" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
-visible = false
 mesh = SubResource("QuadMesh_ioo17")
 surface_material_override/0 = SubResource("ShaderMaterial_wse8f")

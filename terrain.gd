@@ -1,7 +1,8 @@
 extends StaticBody3D
 
 @export var SIZE := 128
-@export var TEX : NoiseTexture2D
+@export var TEX_REGION : NoiseTexture2D
+@export var TEX_DETAIL : NoiseTexture2D
 @export var MAT : Material
 
 # https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html#doc-arraymesh
@@ -19,13 +20,28 @@ func _ready():
 	var normals = PackedVector3Array()
 	var indices = PackedInt32Array()
 	
-	await TEX.changed
-	var image := TEX.get_image()
+	await TEX_REGION.changed
+	await TEX_DETAIL.changed
+	var region := TEX_REGION.get_image()
+	var detail := TEX_DETAIL.get_image()
 	
 	for z in SIZE:
 		for x in SIZE:
 			
-			var height := image.get_pixel(x, z).r * 4
+			var height : float
+			
+			var v = region.get_pixel(x, z).r
+			
+			# TODO falloff V to 0 when close to edge of map
+			
+			var a = 1 + pow(2, 100 * v - 30)
+			var b = 1 + pow(2, 55 - 100 * v)
+			
+			height = (0.5 * a - b) / (a * b) + 0.5
+			
+			height *= 16
+			
+			height += detail.get_pixel(x, z).r
 			
 			verts.append(Vector3(x, height, z))
 			normals.append(Vector3(0, 1, 0))
