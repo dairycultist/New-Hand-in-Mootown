@@ -58,10 +58,17 @@ func _input(event):
 		if ray_result.has("collider") and ray_result.collider is RigidBody3D:
 			held = ray_result.collider
 			held.linear_damp = 10
+			
+			if "can_float" in ray_result.collider:
+				ray_result.collider.can_float = false
 	
 	if (event.is_action_released("interact")):
 		
 		if held:
+			
+			if "can_float" in held:
+				held.can_float = true
+			
 			held.linear_damp = 0
 			held = null
 	

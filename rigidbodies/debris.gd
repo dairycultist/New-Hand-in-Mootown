@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends "floating_body.gd"
 
 const CUBE_MESH = preload("res://rigidbodies/cube.obj")
 const DODEC_MESH = preload("res://rigidbodies/dodecahedron.obj")
