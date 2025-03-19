@@ -7,37 +7,43 @@ extends StaticBody3D
 # https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html#doc-arraymesh
 # look into heightmapshape for collision
 
+# for_in_ inclusivity is so annoying
+
 func _ready():
 	
-	position.x -= SIZE / 2
-	position.z -= SIZE / 2
-
+	var height_map := PackedFloat32Array()
+	
+	# generate mesh
 	var verts = PackedVector3Array()
 	var uvs = PackedVector2Array()
 	var normals = PackedVector3Array()
 	var indices = PackedInt32Array()
 	
-	# generate mesh
 	await TEX.changed
 	var image := TEX.get_image()
 	
-	for x in SIZE:
-		for z in SIZE:
-			verts.append(Vector3(x, image.get_pixel(x, z).r * 4, z))
+	for z in SIZE:
+		for x in SIZE:
+			
+			var height := image.get_pixel(x, z).r * 4
+			
+			verts.append(Vector3(x, height, z))
 			normals.append(Vector3(0, 1, 0))
 			uvs.append(Vector2(x, z))
-	
-	for x in SIZE - 1:
-		for z in SIZE - 1:
-			indices.append(z + x * SIZE)
-			indices.append(z + x * SIZE + SIZE)
-			indices.append(z + x * SIZE + 1)
 			
-			indices.append(z + x * SIZE + SIZE + 1)
-			indices.append(z + x * SIZE + 1)
-			indices.append(z + x * SIZE + SIZE)
+			height_map.append(height)
 	
-	# push mesh
+	for z in SIZE - 1:
+		for x in SIZE - 1:
+			indices.append(x + z * SIZE)
+			indices.append(x + z * SIZE + 1)
+			indices.append(x + z * SIZE + SIZE)
+			
+			indices.append(x + z * SIZE + SIZE + 1)
+			indices.append(x + z * SIZE + SIZE)
+			indices.append(x + z * SIZE + 1)
+	
+	# join mesh
 	var surface_array = []
 	surface_array.resize(Mesh.ARRAY_MAX)
 
@@ -46,8 +52,30 @@ func _ready():
 	surface_array[Mesh.ARRAY_NORMAL] = normals
 	surface_array[Mesh.ARRAY_INDEX] = indices
 
+	# push mesh
 	var mesh_instance := MeshInstance3D.new()
+	
 	mesh_instance.mesh = ArrayMesh.new()
 	mesh_instance.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
 	mesh_instance.set_surface_override_material(0, MAT)
+	mesh_instance.position.x -= (SIZE - 1) / 2.0
+	mesh_instance.position.z -= (SIZE - 1) / 2.0
+	
 	add_child(mesh_instance)
+	
+	# create collider
+	var coll_shape := CollisionShape3D.new()
+	var shape := HeightMapShape3D.new()
+	
+	shape.map_width = SIZE
+	shape.map_depth = SIZE
+	shape.map_data = height_map
+	
+	coll_shape.shape = shape
+	
+	add_child(coll_shape)
+	
+	# debug draw collider
+	#var debug_mesh := MeshInstance3D.new()
+	#debug_mesh.mesh = shape.get_debug_mesh()
+	#add_child(debug_mesh)

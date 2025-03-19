@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
@@ -18,8 +18,6 @@ fractal_octaves = 2
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wse8f"]
 noise = SubResource("FastNoiseLite_ioo17")
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pkg7o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -53,7 +51,7 @@ shader_parameter/water = ExtResource("7_gbfbk")
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 script = ExtResource("1_fj7yv")
 crosshair = NodePath("../Crosshair/Panel")
 hold_anchor = NodePath("Camera3D/Hold Anchor")
@@ -75,19 +73,15 @@ SIZE = 32
 TEX = SubResource("NoiseTexture2D_wse8f")
 MAT = ExtResource("3_gbfbk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
-visible = false
-shape = SubResource("WorldBoundaryShape3D_pkg7o")
-
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="DebugSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0)
 script = ExtResource("3_tlwt5")
 
 [node name="DebugSpawner2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 5, 5)
 script = ExtResource("3_tlwt5")
 tscn_path = "res://rigidbodies/debris.tscn"
 spacing = 5
@@ -117,5 +111,6 @@ environment = SubResource("Environment_gbfbk")
 
 [node name="Water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+visible = false
 mesh = SubResource("QuadMesh_ioo17")
 surface_material_override/0 = SubResource("ShaderMaterial_wse8f")
