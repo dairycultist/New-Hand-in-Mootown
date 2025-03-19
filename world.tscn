@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=16 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
@@ -10,22 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dq6mfe75qjd17" path="res://water.jpg" id="7_gbfbk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ioo17"]
-noise_type = 3
-frequency = 0.0245
-fractal_octaves = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wse8f"]
-noise = SubResource("FastNoiseLite_ioo17")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gbfbk"]
-noise_type = 0
-frequency = 0.055
-fractal_octaves = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ioo17"]
-noise = SubResource("FastNoiseLite_gbfbk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -77,9 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Terrain" type="StaticBody3D" parent="."]
 script = ExtResource("2_gbfbk")
-SIZE = 256
-TEX_REGION = SubResource("NoiseTexture2D_wse8f")
-TEX_DETAIL = SubResource("NoiseTexture2D_ioo17")
+SIZE = 48
 MAT = ExtResource("3_gbfbk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
