@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
 
-[ext_resource type="Texture2D" uid="uid://chkwi5hbuu0qa" path="res://grid.webp" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
+[ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
 [ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://rigidbodies/debug_spawner.gd" id="3_tlwt5"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
@@ -11,16 +11,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
-size = Vector3(40, 40, 40)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f3sb7"]
-albedo_texture = ExtResource("1_f3sb7")
-metallic_specular = 0.0
-uv1_scale = Vector3(13.5, 9, 3)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_036b0"]
-size = Vector3(40, 40, 40)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pkg7o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -37,9 +28,9 @@ background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ioo17"]
-size = Vector2(1000, 1000)
-subdivide_width = 1000
-subdivide_depth = 1000
+size = Vector2(200, 200)
+subdivide_width = 200
+subdivide_depth = 200
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wse8f"]
@@ -73,14 +64,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
-mesh = SubResource("BoxMesh_036b0")
-surface_material_override/0 = SubResource("StandardMaterial3D_f3sb7")
+script = ExtResource("2_gbfbk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
 visible = false
-shape = SubResource("BoxShape3D_036b0")
+shape = SubResource("WorldBoundaryShape3D_pkg7o")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
