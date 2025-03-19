@@ -1,9 +1,14 @@
 extends MeshInstance3D
 
+@export var SIZE := 128
+
 # https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html#doc-arraymesh
 # look into heightmapshape for collision
 
 func _ready():
+	
+	position.x -= SIZE / 2
+	position.z -= SIZE / 2
 
 	var verts = PackedVector3Array()
 	var uvs = PackedVector2Array()
@@ -11,21 +16,21 @@ func _ready():
 	var indices = PackedInt32Array()
 	
 	# generate mesh
-	for x in 128:
-		for z in 128:
+	for x in SIZE:
+		for z in SIZE:
 			verts.append(Vector3(x, 0, z))
 			normals.append(Vector3(0, 1, 0))
 			uvs.append(Vector2(x, z))
 	
-	for x in 127:
-		for z in 127:
-			indices.append(z + x * 128)
-			indices.append(z + 128 + x * 128)
-			indices.append(z + 1   + x * 128)
+	for x in SIZE - 1:
+		for z in SIZE - 1:
+			indices.append(z + x * SIZE)
+			indices.append(z + x * SIZE + SIZE)
+			indices.append(z + x * SIZE + 1)
 			
-			indices.append(z + 129 + x * 128)
-			indices.append(z + 1   + x * 128)
-			indices.append(z + 128 + x * 128)
+			indices.append(z + x * SIZE + SIZE + 1)
+			indices.append(z + x * SIZE + 1)
+			indices.append(z + x * SIZE + SIZE)
 	
 	# push mesh
 	var surface_array = []

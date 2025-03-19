@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=19 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://5bbin7l8thaw" path="res://debug.png" id="2_ioo17"]
 [ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://rigidbodies/debug_spawner.gd" id="3_tlwt5"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dq6mfe75qjd17" path="res://water.jpg" id="7_gbfbk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioo17"]
+albedo_texture = ExtResource("2_ioo17")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pkg7o"]
 
@@ -64,7 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_ioo17")
 script = ExtResource("2_gbfbk")
+SIZE = 32
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 visible = false
