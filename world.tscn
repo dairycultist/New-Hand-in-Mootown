@@ -37,18 +37,18 @@ background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ioo17"]
-size = Vector2(100, 100)
-subdivide_width = 100
-subdivide_depth = 100
+size = Vector2(1000, 1000)
+subdivide_width = 1000
+subdivide_depth = 1000
 orientation = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wse8f"]
 render_priority = 0
 shader = ExtResource("6_pkg7o")
-shader_parameter/slide_speed = 0.003
+shader_parameter/slide_speed = 0.3
 shader_parameter/wobble_speed = 1.0
-shader_parameter/wobble_intensity = 0.004
-shader_parameter/texture_scale = 20.0
+shader_parameter/wobble_intensity = 0.4
+shader_parameter/texture_scale = 0.2
 shader_parameter/water = ExtResource("7_gbfbk")
 
 [node name="World" type="Node3D"]

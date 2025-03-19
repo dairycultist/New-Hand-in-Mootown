@@ -11,9 +11,13 @@ uniform sampler2D water : repeat_enable;
 // https://godotshaders.com/shader/shield-shader-with-intersection-highlight/
 uniform sampler2D depth_texture : source_color, hint_depth_texture;
 
+varying vec2 sample_choord;
+
 void vertex() {
 
 	VERTEX.y += sin(TIME * wobble_speed + (VERTEX.x + VERTEX.z) * 0.3) * 0.2;
+	
+	sample_choord = VERTEX.xz;
 }
 
 void fragment() {
@@ -22,8 +26,8 @@ void fragment() {
 	vec3 color2 = texture(
 		water,
 		vec2(
-			(UV.x + sin(TIME * wobble_speed) * wobble_intensity + TIME * slide_speed) * texture_scale,
-			(UV.y + cos(TIME * wobble_speed * 0.5) * wobble_intensity) * 2.0 * texture_scale
+			(sample_choord.x + sin(TIME * wobble_speed) * wobble_intensity + TIME * slide_speed) * texture_scale,
+			(sample_choord.y + cos(TIME * wobble_speed * 0.5) * wobble_intensity) * 2.0 * texture_scale
 		)
 	).rgb;
 	
