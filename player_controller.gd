@@ -15,13 +15,31 @@ extends CharacterBody3D
 
 var camera_pitch := 0.0
 var held : RigidBody3D
+var looking_holdable : RigidBody3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	crosshair.material.set("shader_parameter/size", 0.02)
 
 func _process(delta: float) -> void:
 	
-	crosshair.material.set("shader_parameter/size", lerpf(crosshair.material.get("shader_parameter/size"), 0.2 if held else 0.02, delta * 10))
+	var ray_result = get_world_3d().direct_space_state.intersect_ray(
+		PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
+	)
+	
+	if ray_result.has("collider") and ray_result.collider is RigidBody3D:
+		looking_holdable = ray_result.collider
+	else:
+		looking_holdable = null
+	
+	crosshair.material.set(
+		"shader_parameter/size",
+		lerpf(
+			crosshair.material.get("shader_parameter/size"), 
+			0.2 if held else 0.1 if looking_holdable else 0.02,
+			delta * 15
+		)
+	)
 	
 	if held != null:
 		# apply force that is the difference in position
@@ -51,21 +69,16 @@ func _input(event):
 	
 	if (event.is_action_pressed("interact")):
 		
-		var ray_result = get_world_3d().direct_space_state.intersect_ray(
-			PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
-		)
-		
-		if ray_result.has("collider") and ray_result.collider is RigidBody3D:
-			held = ray_result.collider
+		if looking_holdable:
+			held = looking_holdable
 			held.linear_damp = 10
 			
-			if "can_float" in ray_result.collider:
-				ray_result.collider.can_float = false
+			if "can_float" in held:
+				held.can_float = false
 	
 	if (event.is_action_released("interact")):
 		
 		if held:
-			
 			if "can_float" in held:
 				held.can_float = true
 			

@@ -43,7 +43,7 @@ shader_parameter/water = ExtResource("7_gbfbk")
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 script = ExtResource("1_fj7yv")
 crosshair = NodePath("../Crosshair/Panel")
 hold_anchor = NodePath("Camera3D/Hold Anchor")
@@ -68,7 +68,7 @@ MAT = ExtResource("3_gbfbk")
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="DebugSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 20, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0)
 script = ExtResource("3_tlwt5")
 
 [node name="Crosshair" type="Control" parent="."]

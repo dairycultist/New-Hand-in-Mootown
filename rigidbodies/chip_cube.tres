@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://do0hwtl2fn30j"]
+
+[ext_resource type="Shader" uid="uid://dreb3dxpxd1dg" path="res://rigidbodies/chip.gdshader" id="1_0iv5t"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gbkwn"]
+noise_type = 3
+frequency = 0.04
+fractal_octaves = 2
+fractal_lacunarity = 2.8
+fractal_gain = 3.0
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_2ugd3"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_gbkwn")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0iv5t")
+shader_parameter/color1 = Color(0.971952, 0.645118, 0, 1)
+shader_parameter/color2 = Color(1, 0.802595, 0.280832, 1)
+shader_parameter/noise = SubResource("NoiseTexture3D_2ugd3")
