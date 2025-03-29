@@ -71,12 +71,6 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 20, 0)
 script = ExtResource("3_tlwt5")
 
-[node name="DebugSpawner2" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 20, 5)
-script = ExtResource("3_tlwt5")
-tscn_path = "res://rigidbodies/debris.tscn"
-spacing = 5
-
 [node name="Crosshair" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 8
