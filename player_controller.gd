@@ -1,5 +1,10 @@
 extends CharacterBody3D
 
+#what if, during the day you collect shapes to bring them back to your base where you can put them in a big glass tube, once they're in the tube you can use them to buy items which you need for night. at night, enemies try to attack and break your glass tube
+#you can get weapons, movement upgrades, and maybe even build structures to help u
+#what if it's like, magic themed
+#use the crystals to cast spells
+
 @export_group("GUI")
 @export var crosshair : CanvasItem
 

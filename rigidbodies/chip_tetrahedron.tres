@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bs0d3sffpiff"]
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://xjji3qsr5ivs"]
 
 [ext_resource type="Shader" uid="uid://dreb3dxpxd1dg" path="res://rigidbodies/chip.gdshader" id="1_eollt"]
 
@@ -17,6 +17,6 @@ noise = SubResource("FastNoiseLite_gbkwn")
 [resource]
 render_priority = 0
 shader = ExtResource("1_eollt")
-shader_parameter/color1 = Color(5.19812e-06, 0.770162, 0.989166, 1)
-shader_parameter/color2 = Color(1, 0.63816, 0.885441, 1)
+shader_parameter/color1 = Color(0.972549, 0.647059, 0, 1)
+shader_parameter/color2 = Color(1, 0.803922, 0.282353, 1)
 shader_parameter/noise = SubResource("NoiseTexture3D_2ugd3")
