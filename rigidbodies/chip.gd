@@ -23,7 +23,9 @@ func _ready() -> void:
 	match rand.randi_range(0, 1):
 		0:
 			mesh.mesh = MESH_CUBE
-			collider.shape = BoxShape3D.new()
+			var coll := BoxShape3D.new()
+			coll.size = Vector3(2.0/3, 2.0/3, 2.0/3)
+			collider.shape = coll
 			mesh.material_override = MAT_CUBE
 		1:
 			mesh.mesh = MESH_TETRAHEDRON
