@@ -89,7 +89,6 @@ environment = SubResource("Environment_gbfbk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68781, 4.54422, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 3.8394, 0, 0, 0, 1, -0.0029707, -5.98273, -1.91228)
 mesh = SubResource("BoxMesh_pkg7o")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]

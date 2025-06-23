@@ -1,10 +1,10 @@
 # FunGame
 
-In order to combat depression, I'm making a game that's fun (even if it's not perfect)
-
-godot farming game, crops are low poly, cozy animal crossing vibe
+In order to combat depression, I'm making a game that's fun (even if it's not perfect). It's a farming game, with low poly crops, customization, and cozy animal crossing vibe.
 
 I think play region will be... fenced off?
+
+structures, like square or hexagonal platforms?
 
 [jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
 
