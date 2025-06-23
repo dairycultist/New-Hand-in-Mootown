@@ -1,14 +1,12 @@
 # FunGame
 
-In order to combat depression, I'm making a game for the purpose of having fun, instead of making something "good."
+In order to combat depression, I'm making a game that's fun (even if it's not perfect)
 
-[video](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
+godot farming game, crops are low poly, cozy animal crossing vibe
 
-the project im making for fun
+I think play region will be... fenced off?
 
-bring big items to the shredder (a bit wall) where they initiate a script that draws them into it slowly while shaking and throwing out chips
-
-chips are small pink~light blue (shader!) octahedron (if you throw them at the shredder they just tink off) which you then sell
+[jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
 
 ## Credits
 

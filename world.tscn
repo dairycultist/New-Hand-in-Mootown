@@ -1,15 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
-[ext_resource type="Script" uid="uid://chbsn7nbruab6" path="res://rigidbodies/debug_spawner.gd" id="3_tlwt5"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
-[ext_resource type="Shader" uid="uid://uoqytvx0q5e" path="res://water.gdshader" id="6_pkg7o"]
-[ext_resource type="Texture2D" uid="uid://dq6mfe75qjd17" path="res://water.jpg" id="7_gbfbk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pkg7o"]
+noise_type = 3
+frequency = 0.008
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbfbk"]
+noise = SubResource("FastNoiseLite_pkg7o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -25,20 +30,9 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
-[sub_resource type="QuadMesh" id="QuadMesh_ioo17"]
-size = Vector2(200, 200)
-subdivide_width = 200
-subdivide_depth = 200
-orientation = 1
+[sub_resource type="BoxMesh" id="BoxMesh_pkg7o"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wse8f"]
-render_priority = 0
-shader = ExtResource("6_pkg7o")
-shader_parameter/slide_speed = 0.3
-shader_parameter/wobble_speed = 1.0
-shader_parameter/wobble_intensity = 0.4
-shader_parameter/texture_scale = 0.2
-shader_parameter/water = ExtResource("7_gbfbk")
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
 
 [node name="World" type="Node3D"]
 
@@ -61,15 +55,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Terrain" type="StaticBody3D" parent="."]
 script = ExtResource("2_gbfbk")
-SIZE = 48
+SIZE = 64
+TEX = SubResource("NoiseTexture2D_gbfbk")
 MAT = ExtResource("3_gbfbk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
-
-[node name="DebugSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 0)
-script = ExtResource("3_tlwt5")
 
 [node name="Crosshair" type="Control" parent="."]
 layout_mode = 3
@@ -94,6 +85,12 @@ offset_bottom = 40.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
 
-[node name="Water" type="MeshInstance3D" parent="."]
-mesh = SubResource("QuadMesh_ioo17")
-surface_material_override/0 = SubResource("ShaderMaterial_wse8f")
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68781, 4.54422, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 3.8394, 0, 0, 0, 1, -0.0029707, -5.98273, -1.91228)
+mesh = SubResource("BoxMesh_pkg7o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_gbfbk")

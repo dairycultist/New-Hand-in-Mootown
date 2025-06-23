@@ -4,10 +4,6 @@ uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
 uniform float size = 0.1;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
 
 	float dist = pow(UV.x - 0.5, 2) + pow(UV.y - 0.5, 2);

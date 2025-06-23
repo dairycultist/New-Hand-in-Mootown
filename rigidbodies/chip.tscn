@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d30kuqos30287"]
-
-[ext_resource type="Script" uid="uid://cs0e3k7nlb7ax" path="res://rigidbodies/chip.gd" id="1_ula8j"]
-
-[node name="Chip" type="RigidBody3D"]
-script = ExtResource("1_ula8j")

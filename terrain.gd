@@ -1,36 +1,31 @@
 extends StaticBody3D
 
 @export var SIZE := 128
-#@export var TEX : NoiseTexture2D
+@export var MAX_HEIGHT := 4
+
+@export var TEX : NoiseTexture2D
 @export var MAT : Material
-
-# https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/arraymesh.html#doc-arraymesh
-# look into heightmapshape for collision
-
-# for_in_ inclusivity is so annoying
 
 func _ready():
 	
+	await TEX.changed
+	var tex_image := TEX.get_image()
+	
+	# generate mesh/collision height map
 	var height_map := PackedFloat32Array()
 	
-	# generate mesh
 	var verts = PackedVector3Array()
 	var uvs = PackedVector2Array()
 	var normals = PackedVector3Array()
 	var indices = PackedInt32Array()
 	
-	#await TEX.changed
-	#var tex_image := TEX.get_image()
-	
 	for z in SIZE:
 		for x in SIZE:
 			
-			var height := 1.0
-			
-			var far = pow(x - SIZE / 2, 2) + pow(z - SIZE / 2, 2) - pow(SIZE / 4, 2)
-			
-			if far > 0:
-				height = lerpf(height, 0, far * 0.01);
+			var height := tex_image.get_pixel(
+				z * tex_image.get_width() / SIZE,
+				x * tex_image.get_height() / SIZE
+			).r * MAX_HEIGHT
 			
 			verts.append(Vector3(x, height, z))
 			normals.append(Vector3(0, 1, 0))
@@ -38,6 +33,7 @@ func _ready():
 			
 			height_map.append(height)
 	
+	# upper bound inclusivity is so annoying
 	for z in SIZE - 1:
 		for x in SIZE - 1:
 			indices.append(x + z * SIZE)
