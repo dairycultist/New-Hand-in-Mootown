@@ -43,7 +43,12 @@ func _process(delta: float) -> void:
 	
 	if held != null:
 		# apply force that is the difference in position
-		held.apply_central_force((hold_anchor.global_position - held.global_position) * 100)
+		var force := (hold_anchor.global_position - held.global_position) * 100
+		
+		held.apply_central_force(force)
+		
+		if "crop_process_force" in held:
+			held.crop_process_force(force)
 	
 	# movement
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")

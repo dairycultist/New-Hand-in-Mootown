@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=19 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 [ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://carrot/carrot.obj" id="6_dwbse"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://carrot/crop.gd" id="6_ioo17"]
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://toon.gdshader" id="7_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://carrot/carrot.png" id="8_gbfbk"]
 
@@ -95,6 +96,7 @@ environment = SubResource("Environment_gbfbk")
 
 [node name="Carrot" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68781, 4.54422, 0)
+script = ExtResource("6_ioo17")
 
 [node name="Mesh" type="MeshInstance3D" parent="Carrot"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
