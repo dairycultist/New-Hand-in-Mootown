@@ -14,7 +14,7 @@ func _ready():
 		random.randf_range(-0.3, 0.3)
 	)
 	
-	seconds_to_fully_grown = random.randi_range(10, 100) # debug
+	seconds_to_fully_grown = random.randi_range(10, 100) # debug range
 	
 	# duplicate the material so we can independently modify it
 	mat = $Mesh.get_surface_override_material(0).duplicate()
@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 	
 	if growth >= 0.0:
 		
-		growth = min(1.0, growth + delta / seconds_to_fully_grown)
-		mat.set("shader_parameter/growth", growth);
+		growth += delta / seconds_to_fully_grown
+		mat.set("shader_parameter/growth", min(1.0, growth));
 		
 		if growth >= 1.0:
 			growth = -1.0
