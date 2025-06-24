@@ -9,7 +9,7 @@
 render_priority = 0
 shader = ExtResource("3_08lrh")
 shader_parameter/tex = ExtResource("4_0dqjg")
-shader_parameter/growth = 0.0
+shader_parameter/growth = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pkg7o"]
 radius = 0.224899
