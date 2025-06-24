@@ -86,10 +86,12 @@ offset_bottom = 40.0
 environment = SubResource("Environment_gbfbk")
 
 [node name="DirtPatch" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="DirtPatch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279348, 0)
 shape = SubResource("SphereShape3D_pkg7o")
 
 [node name="Mesh" type="MeshInstance3D" parent="DirtPatch"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.181538, 0)
 mesh = ExtResource("6_dwbse")

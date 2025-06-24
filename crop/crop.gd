@@ -56,4 +56,5 @@ func crop_process_force(force: Vector3):
 		
 		set_locked(false)
 		position.y += 0.5
+		reparent(get_node("/root/World")) # un-parent from DirtPatch we're planted in
 		# play a pop sound
