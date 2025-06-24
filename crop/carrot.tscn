@@ -12,8 +12,8 @@ shader_parameter/tex = ExtResource("4_0dqjg")
 shader_parameter/growth = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pkg7o"]
-radius = 0.224899
-height = 1.17742
+radius = 0.190966
+height = 0.634398
 
 [node name="Carrot" type="RigidBody3D"]
 script = ExtResource("1_44d0k")
@@ -25,4 +25,5 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_08lrh")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24606, 0)
 shape = SubResource("CapsuleShape3D_pkg7o")

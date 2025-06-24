@@ -16,6 +16,7 @@ func _ready():
 	
 	seconds_to_fully_grown = random.randi_range(10, 100) # debug
 	
+	# duplicate the material so we can independently modify it
 	mat = $Mesh.get_surface_override_material(0).duplicate()
 	$Mesh.set_surface_override_material(0, mat)
 	
