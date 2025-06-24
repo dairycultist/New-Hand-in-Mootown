@@ -1,7 +1,5 @@
 extends StaticBody3D
 
-var CARROT := preload("res://crop/carrot.tscn")
-
 @export var SIZE := 128
 @export var MAX_HEIGHT := 4
 
@@ -36,12 +34,6 @@ func _ready():
 			uvs.append(Vector2(x, z))
 			
 			height_map.append(height)
-			
-			# debug place carrots
-			if height < 0.8:
-				var carrot := CARROT.instantiate()
-				add_child(carrot)
-				carrot.position = Vector3(x - half_size, height, z - half_size)
 	
 	# upper bound inclusivity is so annoying
 	for z in SIZE - 1:

@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var CARROT := preload("res://crop/carrot.tscn")
+
 @export_group("GUI")
 @export var crosshair : CanvasItem
 
@@ -15,7 +17,10 @@ extends CharacterBody3D
 
 var camera_pitch := 0.0
 var held : RigidBody3D
+
 var looking_holdable : RigidBody3D
+var looking_position : Vector3
+var looking_name : String
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -27,10 +32,19 @@ func _process(delta: float) -> void:
 		PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
 	)
 	
-	if ray_result.has("collider") and ray_result.collider is RigidBody3D:
-		looking_holdable = ray_result.collider
+	if ray_result.has("collider"):
+		
+		looking_position = ray_result.position
+		looking_name = ray_result.collider.name
+		
+		if ray_result.collider is RigidBody3D:
+			looking_holdable = ray_result.collider
+		else:
+			looking_holdable = null
+			
 	else:
 		looking_holdable = null
+		looking_name = ""
 	
 	crosshair.material.set(
 		"shader_parameter/size",
@@ -75,8 +89,15 @@ func _input(event):
 	if (event.is_action_pressed("interact")):
 		
 		if looking_holdable:
+			
 			held = looking_holdable
 			held.linear_damp = 10
+			
+		elif looking_name != "":
+
+			var carrot := CARROT.instantiate()
+			get_node("/root/World").add_child(carrot)
+			carrot.position = looking_position
 	
 	if (event.is_action_released("interact")):
 		
