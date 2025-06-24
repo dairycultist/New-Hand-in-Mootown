@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop/crop.gdshader" id="3_08lrh"]
 [ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://crop/carrot.png" id="4_0dqjg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wf4x8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08lrh"]
 render_priority = 0
 shader = ExtResource("3_08lrh")
 shader_parameter/tex = ExtResource("4_0dqjg")
@@ -22,7 +22,7 @@ script = ExtResource("1_44d0k")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = ExtResource("2_pob7t")
 skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_wf4x8")
+surface_material_override/0 = SubResource("ShaderMaterial_08lrh")
 
 [node name="Collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pkg7o")

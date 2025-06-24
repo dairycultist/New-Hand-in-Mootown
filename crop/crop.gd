@@ -1,5 +1,9 @@
 extends RigidBody3D
 
+var growth := 0.0
+var seconds_to_fully_grown : int
+var mat : Material
+
 func _ready():
 	
 	var random := RandomNumberGenerator.new()
@@ -10,7 +14,18 @@ func _ready():
 		random.randf_range(-0.3, 0.3)
 	)
 	
+	seconds_to_fully_grown = random.randi_range(10, 100) # debug
+	
+	mat = $Mesh.get_surface_override_material(0).duplicate()
+	$Mesh.set_surface_override_material(0, mat)
+	
 	set_locked(true)
+
+func _process(delta: float) -> void:
+	
+	growth = min(1.0, growth + delta / seconds_to_fully_grown)
+	
+	mat.set("shader_parameter/growth", growth);
 
 func get_locked():
 	return axis_lock_linear_x
@@ -28,7 +43,7 @@ func crop_process_force(force: Vector3):
 	
 	# wait until the object has a really high upward force on it
 	# before unfreezing
-	if get_locked() and force.y > 120: # AND fully grown
+	if get_locked() and force.y > 120 and growth == 1.0:
 		
 		set_locked(false)
 		position.y += 0.3

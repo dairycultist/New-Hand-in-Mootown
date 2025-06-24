@@ -17,6 +17,7 @@ void vertex() {
 }
 
 void fragment() {
+
 	// convert from sRGB to linear RGB
 	// (normal fac is 2.2 but this works better for shaded)
 	ALBEDO = pow3(texture(tex, UV).rgb, 3) * vec3(
