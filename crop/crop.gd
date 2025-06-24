@@ -55,6 +55,7 @@ func crop_process_force(force: Vector3):
 	if get_locked() and force.y > 120 and growth < 0.0:
 		
 		set_locked(false)
-		position.y += 0.5
+		position.y += 0.5 # move out a bit so we don't get stuck in the ground
 		reparent(get_node("/root/World")) # un-parent from DirtPatch we're planted in
-		# play a pop sound
+		$UnearthCropSound.play() # play a pop sound
+		# spawn some dirt particles
