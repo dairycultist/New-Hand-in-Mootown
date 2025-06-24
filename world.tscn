@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
+[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://carrot/carrot.obj" id="6_dwbse"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -30,9 +31,9 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
-[sub_resource type="BoxMesh" id="BoxMesh_pkg7o"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pkg7o"]
+radius = 0.224899
+height = 1.17742
 
 [node name="World" type="Node3D"]
 
@@ -85,11 +86,13 @@ offset_bottom = 40.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
+[node name="Carrot" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68781, 4.54422, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("BoxMesh_pkg7o")
+[node name="Mesh" type="MeshInstance3D" parent="Carrot"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("6_dwbse")
+skeleton = NodePath("../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("BoxShape3D_gbfbk")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot"]
+shape = SubResource("CapsuleShape3D_pkg7o")
