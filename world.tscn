@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 [ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://carrot/carrot.obj" id="6_dwbse"]
+[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://toon.gdshader" id="7_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://carrot/carrot.png" id="8_gbfbk"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -30,6 +32,11 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 [sub_resource type="Environment" id="Environment_gbfbk"]
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gbfbk"]
+render_priority = 0
+shader = ExtResource("7_pkg7o")
+shader_parameter/tex = ExtResource("8_gbfbk")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pkg7o"]
 radius = 0.224899
@@ -93,6 +100,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68781, 4.54422, 0)
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = ExtResource("6_dwbse")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_gbfbk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Carrot"]
 shape = SubResource("CapsuleShape3D_pkg7o")
