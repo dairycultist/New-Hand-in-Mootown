@@ -6,6 +6,8 @@ var mat : Material
 
 func _ready():
 	
+	$PlantCropSound.play()
+	
 	var random := RandomNumberGenerator.new()
 	
 	global_rotation = Vector3(

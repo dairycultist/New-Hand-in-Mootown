@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3c8pnec01dt6"]
+[gd_scene load_steps=9 format=3 uid="uid://c3c8pnec01dt6"]
 
 [ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop/crop.gd" id="1_44d0k"]
 [ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://crop/carrot.obj" id="2_pob7t"]
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop/crop.gdshader" id="3_08lrh"]
 [ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://crop/carrot.png" id="4_0dqjg"]
 [ext_resource type="AudioStream" uid="uid://dtcue513udfmc" path="res://crop/unearth_crop.wav" id="5_wf4x8"]
+[ext_resource type="AudioStream" uid="uid://jqambjpetihp" path="res://crop/plant_crop.wav" id="6_pwwl2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_08lrh"]
 render_priority = 0
@@ -31,3 +32,6 @@ shape = SubResource("CapsuleShape3D_pkg7o")
 
 [node name="UnearthCropSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_wf4x8")
+
+[node name="PlantCropSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_pwwl2")
