@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-var growth := 0.0
+var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
 var seconds_to_fully_grown : int
 var mat : Material
 
@@ -20,13 +20,21 @@ func _ready():
 	mat = $Mesh.get_surface_override_material(0).duplicate()
 	$Mesh.set_surface_override_material(0, mat)
 	
+	# disable the collider until fully grown
+	$Collider.disabled = true
+	
 	set_locked(true)
 
 func _process(delta: float) -> void:
 	
-	growth = min(1.0, growth + delta / seconds_to_fully_grown)
-	
-	mat.set("shader_parameter/growth", growth);
+	if growth >= 0.0:
+		
+		growth = min(1.0, growth + delta / seconds_to_fully_grown)
+		mat.set("shader_parameter/growth", growth);
+		
+		if growth >= 1.0:
+			growth = -1.0
+			$Collider.disabled = false
 
 func get_locked():
 	return axis_lock_linear_x
@@ -44,8 +52,8 @@ func crop_process_force(force: Vector3):
 	
 	# wait until the object has a really high upward force on it
 	# before unfreezing
-	if get_locked() and force.y > 120 and growth == 1.0:
+	if get_locked() and force.y > 120 and growth < 0.0:
 		
 		set_locked(false)
-		position.y += 0.3
+		position.y += 0.5
 		# play a pop sound
