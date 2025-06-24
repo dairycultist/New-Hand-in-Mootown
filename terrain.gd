@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+var CARROT := preload("res://crop/carrot.tscn")
+
 @export var SIZE := 128
 @export var MAX_HEIGHT := 4
 
@@ -7,6 +9,8 @@ extends StaticBody3D
 @export var MAT : Material
 
 func _ready():
+	
+	var half_size = (SIZE - 1) / 2.0
 	
 	await TEX.changed
 	var tex_image := TEX.get_image()
@@ -32,6 +36,12 @@ func _ready():
 			uvs.append(Vector2(x, z))
 			
 			height_map.append(height)
+			
+			# debug place carrots
+			if height < 0.8:
+				var carrot := CARROT.instantiate()
+				add_child(carrot)
+				carrot.position = Vector3(x - half_size, height, z - half_size)
 	
 	# upper bound inclusivity is so annoying
 	for z in SIZE - 1:
@@ -59,8 +69,8 @@ func _ready():
 	mesh_instance.mesh = ArrayMesh.new()
 	mesh_instance.mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, surface_array)
 	mesh_instance.set_surface_override_material(0, MAT)
-	mesh_instance.position.x -= (SIZE - 1) / 2.0
-	mesh_instance.position.z -= (SIZE - 1) / 2.0
+	mesh_instance.position.x -= half_size
+	mesh_instance.position.z -= half_size
 	
 	add_child(mesh_instance)
 	

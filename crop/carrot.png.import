@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgti3bstqph40"
-path.s3tc="res://.godot/imported/carrot.png-381ec4bbcb2a947df56d9a4e5cf0e480.s3tc.ctex"
+path.s3tc="res://.godot/imported/carrot.png-897961a959e5d83da6d24218d9692ada.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://carrot/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-381ec4bbcb2a947df56d9a4e5cf0e480.s3tc.ctex"]
+source_file="res://crop/carrot.png"
+dest_files=["res://.godot/imported/carrot.png-897961a959e5d83da6d24218d9692ada.s3tc.ctex"]
 
 [params]
 
