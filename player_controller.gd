@@ -16,6 +16,12 @@ var DIRT_PATCH := preload("res://crop/dirt_patch.tscn")
 @export var jump_speed := 7
 @export var max_fall_speed := 32
 
+# stores reference to physical item held in hand (hidden/shown on demand)
+# they can also be thrown on the ground, but not dragged (trying to will pick them up)
+# they are identified by their names! i.e. "Trowel" "CarrotSeeds" etc
+var inventory: Array = [ null, null, null, null ]
+var selected_inv_slot := 0
+
 var camera_pitch := 0.0
 var held : RigidBody3D
 
