@@ -1,7 +1,5 @@
 extends StaticBody3D
 
-var DIRT := preload("res://crop/dirt_patch.tscn")
-
 @export var SIZE := 128
 @export var MAX_HEIGHT := 4
 
@@ -36,13 +34,6 @@ func _ready():
 			uvs.append(Vector2(x, z))
 			
 			height_map.append(height)
-			
-			# debug
-			if height > 3.5:
-				var dirt := DIRT.instantiate()
-				add_child(dirt)
-				dirt.position = Vector3(x - half_size, height + 0.15, z - half_size)
-				dirt.name = "DirtPatch"
 	
 	# upper bound inclusivity is so annoying
 	for z in SIZE - 1:

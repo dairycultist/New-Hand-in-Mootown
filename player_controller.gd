@@ -95,33 +95,14 @@ func _input(event):
 	
 	if (event.is_action_pressed("interact")):
 		
-		# picking stuff
+		# picking up stuff
 		if looking_holdable:
 			
 			held = looking_holdable
 			held.linear_damp = 10
 		
-		# depending on what we're holding, there may be
-		# other actions we can perform, like planting or troweling
-		elif looking_node and looking_node.name.contains("DirtPatch"):
-			
-			# destroy a dirt patch with the trowel
-			looking_node.queue_free()
-			
-		elif looking_node:
-			
-			# place a dirt patch with the trowel
-			var dirt_patch := DIRT_PATCH.instantiate()
-			looking_node.add_child(dirt_patch)
-			dirt_patch.global_position = looking_position + Vector3(0, 0.15, 0)
-			dirt_patch.name = "DirtPatch"
-			
-		elif looking_node and looking_node.name.contains("DirtPatch") and looking_node.get_child_count() == 2:
-			
-			# plant a carrot on a dirt patch with a carrot seed bag
-			var carrot := CARROT.instantiate()
-			looking_node.add_child(carrot)
-			carrot.position = Vector3.ZERO
+		else:
+			use_held_item()
 	
 	if (event.is_action_released("interact")):
 		
@@ -143,3 +124,28 @@ func _input(event):
 		camera_pitch = clampf(camera_pitch - event.relative.y * mouse_sensitivity, -90, 90)
 		
 		camera.rotation.x = deg_to_rad(camera_pitch)
+
+func use_held_item():
+	
+	# depending on what we're holding, there may be
+	# other actions we can perform, like planting or troweling
+	if looking_node and looking_node.name.contains("DirtPatch"):
+		
+		# destroy a dirt patch with the trowel
+		looking_node.queue_free()
+		
+	elif looking_node:
+		
+		# place a dirt patch with the trowel
+		var dirt_patch := DIRT_PATCH.instantiate()
+		looking_node.add_child(dirt_patch)
+		dirt_patch.global_position = looking_position + Vector3(0, 0.15, 0)
+		dirt_patch.global_rotation.y = RandomNumberGenerator.new().randf_range(0.0, PI * 2.0)
+		dirt_patch.name = "DirtPatch"
+		
+	elif looking_node and looking_node.name.contains("DirtPatch") and looking_node.get_child_count() == 2:
+		
+		# plant a carrot on a dirt patch with a carrot seed bag
+		var carrot := CARROT.instantiate()
+		looking_node.add_child(carrot)
+		carrot.position = Vector3.ZERO
