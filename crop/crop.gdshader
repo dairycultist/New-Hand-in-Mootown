@@ -18,14 +18,14 @@ void vertex() {
 
 void fragment() {
 	
-	float growth2 = pow(growth, 2.0);
+	float growth_pow = pow(growth, 4.0);
 
 	// convert from sRGB to linear RGB
 	// (normal fac is 2.2 but this works better for shaded)
 	ALBEDO = pow3(texture(tex, UV).rgb, 3) * vec3(
-		mix(0.3, 1.0, growth2),
-		mix(0.5, 1.0, growth2),
-		mix(0.3, 1.0, growth2)
+		mix(0.3, 1.0, growth_pow),
+		mix(0.5, 1.0, growth_pow),
+		mix(0.3, 1.0, growth_pow)
 	);
 }
 

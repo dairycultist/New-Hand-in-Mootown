@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=13 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
-[ext_resource type="ArrayMesh" uid="uid://nvpxbftiu2l1" path="res://crop/dirt_patch.obj" id="6_dwbse"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -30,9 +29,6 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 [sub_resource type="Environment" id="Environment_gbfbk"]
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_pkg7o"]
-radius = 0.237511
 
 [node name="World" type="Node3D"]
 
@@ -84,14 +80,3 @@ offset_bottom = 40.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
-
-[node name="DirtPatch" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-
-[node name="Collider" type="CollisionShape3D" parent="DirtPatch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279348, 0)
-shape = SubResource("SphereShape3D_pkg7o")
-
-[node name="Mesh" type="MeshInstance3D" parent="DirtPatch"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.181538, 0)
-mesh = ExtResource("6_dwbse")

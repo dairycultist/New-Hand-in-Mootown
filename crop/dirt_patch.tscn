@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm2sxwun7x5wx"]
+
+[ext_resource type="ArrayMesh" uid="uid://nvpxbftiu2l1" path="res://crop/dirt_patch.obj" id="1_118kw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pkg7o"]
+radius = 0.237511
+
+[node name="DirtPatch" type="StaticBody3D"]
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.279348, 0)
+shape = SubResource("SphereShape3D_pkg7o")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, -0.181538, 0)
+mesh = ExtResource("1_118kw")

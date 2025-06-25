@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 var CARROT := preload("res://crop/carrot.tscn")
+var DIRT_PATCH := preload("res://crop/dirt_patch.tscn")
 
 @export_group("GUI")
 @export var crosshair : CanvasItem
@@ -94,9 +95,24 @@ func _input(event):
 			held = looking_holdable
 			held.linear_damp = 10
 		
-		# planting
-		elif looking_node and looking_node.name == "DirtPatch" and looking_node.get_child_count() == 2:
-
+		# depending on what we're holding, there may be
+		# other actions we can perform, like planting or troweling
+		elif looking_node and looking_node.name.contains("DirtPatch"):
+			
+			# destroy a dirt patch with the trowel
+			looking_node.queue_free()
+			
+		elif looking_node:
+			
+			# place a dirt patch with the trowel
+			var dirt_patch := DIRT_PATCH.instantiate()
+			looking_node.add_child(dirt_patch)
+			dirt_patch.global_position = looking_position + Vector3(0, 0.15, 0)
+			dirt_patch.name = "DirtPatch"
+			
+		elif looking_node and looking_node.name.contains("DirtPatch") and looking_node.get_child_count() == 2:
+			
+			# plant a carrot on a dirt patch with a carrot seed bag
 			var carrot := CARROT.instantiate()
 			looking_node.add_child(carrot)
 			carrot.position = Vector3.ZERO
