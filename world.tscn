@@ -92,9 +92,12 @@ shape = SubResource("BoxShape3D_aqk2v")
 material_override = ExtResource("3_gbfbk")
 mesh = SubResource("BoxMesh_036b0")
 
-[node name="Carrot" parent="." instance=ExtResource("5_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55422, 0.124048, 3.00946)
+[node name="GardenPlot" type="StaticBody3D" parent="."]
 
-[node name="GardenPlot" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GardenPlot"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.55422, 0, 3.00946)
 mesh = ExtResource("5_pkg7o")
+skeleton = NodePath("../..")
+
+[node name="Carrot" parent="GardenPlot" instance=ExtResource("5_dwbse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55422, 0.124048, 3.00946)

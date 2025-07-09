@@ -6,6 +6,8 @@ var mat : Material
 
 func _ready():
 	
+	super._ready()
+	
 	$PlantCropSound.play()
 	
 	var random := RandomNumberGenerator.new()
@@ -16,7 +18,7 @@ func _ready():
 		random.randf_range(-0.3, 0.3)
 	)
 	
-	seconds_to_fully_grown = random.randi_range(10, 100) # debug range
+	seconds_to_fully_grown = 5 # 60 * random.randi_range(3, 5)
 	
 	# duplicate the material so we can independently modify it
 	mat = $Mesh.get_surface_override_material(0).duplicate()
@@ -52,8 +54,7 @@ func set_locked(value: bool):
 
 func while_pickup(force: Vector3):
 	
-	# wait until the object has a really high upward force on it
-	# before unfreezing
+	# wait until the object has a really high upward force on it before unfreezing
 	if get_locked() and force.y > 120 and growth < 0.0:
 		
 		set_locked(false)
