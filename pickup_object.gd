@@ -1,6 +1,8 @@
 extends RigidBody3D
 
 func _ready() -> void:
+	
+	# label this object so the player knows it can be picked up
 	add_to_group("Pickup")
 	
 	# enable collision monitoring
@@ -19,7 +21,3 @@ func off_pickup():
 
 func on_bump(bumpee: Node3D):
 	print(bumpee.name)
-
-#mechanic is picking stuff up. when something bumps into something else, an
-#interaction occurs. for example, a bag of 10 carrots seeds being placed onto
-#an empty garden plot will plant 1 seed in the plot, removing it from the bag.

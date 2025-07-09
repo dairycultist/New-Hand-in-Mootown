@@ -14,6 +14,10 @@ them to adolecense, then either sell them for profit or just keep em around.
 AND you can also grow crops in a little garden area, which you can feed to the
 gals
 
+Most interactions occur by picking up objects and bumping them into other
+objects. For example, a bag of 10 carrots seeds being placed onto an empty
+garden plot will plant a carrot in the plot, removing one seed from the bag.
+
 ## Credits
 
 ![skybox](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)
