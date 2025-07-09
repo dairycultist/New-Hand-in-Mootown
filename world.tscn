@@ -1,18 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=14 format=3 uid="uid://ids5d4hu0cvp"]
 
-[ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
-[ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://crop/carrot.tscn" id="5_dwbse"]
-[ext_resource type="Script" uid="uid://cnwuf4biglmyg" path="res://pickup_object.gd" id="5_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://pickup/crop/carrot.tscn" id="5_dwbse"]
+[ext_resource type="Script" uid="uid://cnwuf4biglmyg" path="res://pickup/pickup_object.gd" id="5_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://garden_plot.obj" id="5_pkg7o"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
-shader = ExtResource("4_aqk2v")
-shader_parameter/size = 0.2
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
 panorama = ExtResource("5_036b0")
@@ -35,39 +28,11 @@ size = Vector2(10, 10)
 
 [node name="World" type="Node3D"]
 
-[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
+[node name="Player" parent="." instance=ExtResource("1_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
-script = ExtResource("1_fj7yv")
-crosshair = NodePath("../Crosshair")
-hold_anchor = NodePath("Camera3D/Hold Anchor")
-camera = NodePath("Camera3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_gv5m4")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Hold Anchor" type="Node3D" parent="Player/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
-
-[node name="Crosshair" type="Panel" parent="."]
-material = SubResource("ShaderMaterial_036b0")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")

@@ -1,9 +1,6 @@
 extends CharacterBody3D
 
-var CARROT := preload("res://crop/carrot.tscn")
-
-@export_group("GUI")
-@export var crosshair : CanvasItem
+var CARROT := preload("res://pickup/crop/carrot.tscn")
 
 @export_group("Misc")
 @export var hold_anchor : Node3D
@@ -20,24 +17,30 @@ var held_pickup : RigidBody3D
 var looking_pickup : RigidBody3D
 
 func _ready() -> void:
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	crosshair.material.set("shader_parameter/size", 0.02)
+	$Crosshair.material.set("shader_parameter/size", 0.02)
 
 func _process(delta: float) -> void:
 	
-	var ray_result = get_world_3d().direct_space_state.intersect_ray(
-		PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
-	)
+	# if not holding a pickup, check if we're looking at a pickup
+	if not held_pickup:
 	
-	if ray_result.has("collider") and ray_result.collider.is_in_group("Pickup"):
-		looking_pickup = ray_result.collider
-	else:
-		looking_pickup = null
+		var ray_result = get_world_3d().direct_space_state.intersect_ray(
+			PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
+		)
+		
+		if ray_result.has("collider") and ray_result.collider.is_in_group("Pickup"):
+			looking_pickup = ray_result.collider
+			set_display_text(looking_pickup.get_display_string())
+		else:
+			looking_pickup = null
+			set_display_text("")
 	
-	crosshair.material.set(
+	$Crosshair.material.set(
 		"shader_parameter/size",
 		lerpf(
-			crosshair.material.get("shader_parameter/size"), 
+			$Crosshair.material.get("shader_parameter/size"), 
 			0.2 if held_pickup else 0.1 if looking_pickup else 0.02,
 			delta * 15
 		)
@@ -78,6 +81,7 @@ func _input(event):
 		if looking_pickup:
 			held_pickup = looking_pickup
 			held_pickup.on_pickup()
+			set_display_text(held_pickup.get_display_string())
 	
 	if (event.is_action_released("interact")):
 		
@@ -85,6 +89,7 @@ func _input(event):
 		if held_pickup:
 			held_pickup.off_pickup()
 			held_pickup = null
+			set_display_text("")
 	
 	if event.is_action_pressed("pause"):
 		
@@ -100,3 +105,11 @@ func _input(event):
 		camera_pitch = clampf(camera_pitch - event.relative.y * mouse_sensitivity, -90, 90)
 		
 		camera.rotation.x = deg_to_rad(camera_pitch)
+
+func set_display_text(text: String):
+	
+	if text == "":
+		$DisplayBubble.visible = false
+	else:
+		$DisplayBubble/Text.text = text
+		$DisplayBubble.visible = true

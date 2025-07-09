@@ -10,6 +10,10 @@ func _ready() -> void:
 	max_contacts_reported = 1
 	body_entered.connect(on_bump)
 
+# used either when holding or, if not holding, looking
+func get_display_string() -> String:
+	return ""
+
 func on_pickup():
 	linear_damp = 10
 
@@ -20,4 +24,4 @@ func off_pickup():
 	linear_damp = 0
 
 func on_bump(bumpee: Node3D):
-	print(bumpee.name)
+	pass
