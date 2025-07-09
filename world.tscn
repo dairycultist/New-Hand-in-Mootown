@@ -1,11 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://pickup/crop/carrot.tscn" id="5_dwbse"]
-[ext_resource type="Script" uid="uid://cnwuf4biglmyg" path="res://pickup/pickup_object.gd" id="5_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://garden_plot.obj" id="5_pkg7o"]
+[ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://pickup/seeds/pickup_seeds.gd" id="6_gbfbk"]
+[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://pickup/seeds/carrot_seeds.obj" id="7_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://pickup/seeds/carrot_seeds.png" id="8_ioo17"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
 panorama = ExtResource("5_036b0")
@@ -22,12 +24,15 @@ size = Vector2(10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
-
 [sub_resource type="Theme" id="Theme_dwbse"]
 default_font_size = 50
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
+albedo_texture = ExtResource("8_ioo17")
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkg7o"]
+size = Vector3(0.42, 0.705, 0.6)
 
 [node name="World" type="Node3D"]
 
@@ -40,29 +45,18 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
 
-[node name="Terrain" type="StaticBody3D" parent="."]
+[node name="Ground" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 material_override = ExtResource("3_gbfbk")
 mesh = SubResource("PlaneMesh_aqk2v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
-
-[node name="Box" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32447, 1.69896, 0)
-script = ExtResource("5_gbfbk")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
-shape = SubResource("BoxShape3D_aqk2v")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
-material_override = ExtResource("3_gbfbk")
-mesh = SubResource("BoxMesh_036b0")
 
 [node name="GardenPlot" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="GardenPlot"]
+[node name="Mesh" type="MeshInstance3D" parent="GardenPlot"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.55422, 0, 3.00946)
 mesh = ExtResource("5_pkg7o")
 skeleton = NodePath("../..")
@@ -78,3 +72,17 @@ offset_bottom = 92.0
 theme = SubResource("Theme_dwbse")
 theme_override_colors/default_color = Color(0.993713, 0.576362, 0, 1)
 text = "¢0"
+
+[node name="CarrotSeeds" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22516, 1.23995, 1.01106)
+script = ExtResource("6_gbfbk")
+
+[node name="Mesh" type="MeshInstance3D" parent="CarrotSeeds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = ExtResource("7_gbfbk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wse8f")
+
+[node name="Collider" type="CollisionShape3D" parent="CarrotSeeds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525879, 0)
+shape = SubResource("BoxShape3D_pkg7o")

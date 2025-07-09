@@ -18,8 +18,6 @@ Most interactions occur by picking up objects and bumping them into other
 objects. For example, a bag of 10 carrots seeds being placed onto an empty
 garden plot will plant a carrot in the plot, removing one seed from the bag.
 
-`10 Carrot Seeds`
-
 alongside "pickups," probably also gonna need to check for "buttons"
 
 ## Credits

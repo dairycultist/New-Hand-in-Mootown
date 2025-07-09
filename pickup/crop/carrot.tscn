@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://c3c8pnec01dt6"]
 
-[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://pickup/crop/crop.gd" id="1_44d0k"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://pickup/crop/pickup_crop.gd" id="1_44d0k"]
 [ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://pickup/crop/carrot.obj" id="2_pob7t"]
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://pickup/crop/crop.gdshader" id="3_08lrh"]
 [ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://pickup/crop/carrot.png" id="4_0dqjg"]
