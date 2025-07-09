@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
@@ -23,6 +23,9 @@ sky = SubResource("Sky_pkg7o")
 size = Vector2(10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
+size = Vector3(1, 0.492676, 1)
 
 [sub_resource type="Theme" id="Theme_dwbse"]
 default_font_size = 50
@@ -54,15 +57,17 @@ mesh = SubResource("PlaneMesh_aqk2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
 
-[node name="GardenPlot" type="StaticBody3D" parent="."]
+[node name="SeedPlot" type="StaticBody3D" parent="." groups=["SeedPlot"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43746, 0.0990771, 3.05075)
 
-[node name="Mesh" type="MeshInstance3D" parent="GardenPlot"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.55422, 0, 3.00946)
+[node name="Mesh" type="MeshInstance3D" parent="SeedPlot"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.124, 0)
 mesh = ExtResource("5_pkg7o")
 skeleton = NodePath("../..")
 
-[node name="Carrot" parent="GardenPlot" instance=ExtResource("5_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55422, 0.124048, 3.00946)
+[node name="Collider" type="CollisionShape3D" parent="SeedPlot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.253662, 0)
+shape = SubResource("BoxShape3D_gbfbk")
 
 [node name="MoneyDisplay" type="RichTextLabel" parent="."]
 offset_left = 20.0

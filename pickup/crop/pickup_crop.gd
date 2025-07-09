@@ -4,15 +4,16 @@ var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
 var seconds_to_fully_grown : int
 var mat : Material
 
-func _ready():
-	
-	super._ready()
+# also probably an "initialize_as_pickup"
+func initialize_as_planted():
 	
 	$PlantCropSound.play()
 	
+	position = Vector3.ZERO
+	
 	var random := RandomNumberGenerator.new()
 	
-	global_rotation = Vector3(
+	rotation = Vector3(
 		random.randf_range(-0.3, 0.3),
 		random.randf_range(0.0, PI * 2.0),
 		random.randf_range(-0.3, 0.3)
@@ -25,7 +26,7 @@ func _ready():
 	$Mesh.set_surface_override_material(0, mat)
 	
 	# disable the collider until fully grown
-	$Collider.disabled = true
+	$Collider.set_deferred("disabled", true)
 	
 	set_locked(true)
 

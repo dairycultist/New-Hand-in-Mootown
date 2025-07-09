@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-var CARROT := preload("res://pickup/crop/carrot.tscn")
-
 @export_group("Misc")
 @export var hold_anchor : Node3D
 @export var camera : Camera3D
