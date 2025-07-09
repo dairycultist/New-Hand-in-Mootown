@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://wqqdplkvrx2k" path="res://seed_plot.tscn" id="4_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 [ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://pickup/crop/carrot.tscn" id="5_dwbse"]
-[ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://garden_plot.obj" id="5_pkg7o"]
 [ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://pickup/seeds/pickup_seeds.gd" id="6_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://pickup/seeds/carrot_seeds.obj" id="7_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://pickup/seeds/carrot_seeds.png" id="8_ioo17"]
@@ -23,9 +23,6 @@ sky = SubResource("Sky_pkg7o")
 size = Vector2(10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
-size = Vector3(1, 0.492676, 1)
 
 [sub_resource type="Theme" id="Theme_dwbse"]
 default_font_size = 50
@@ -57,17 +54,8 @@ mesh = SubResource("PlaneMesh_aqk2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
 
-[node name="SeedPlot" type="StaticBody3D" parent="." groups=["SeedPlot"]]
+[node name="SeedPlot" parent="." instance=ExtResource("4_gbfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43746, 0.0990771, 3.05075)
-
-[node name="Mesh" type="MeshInstance3D" parent="SeedPlot"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.124, 0)
-mesh = ExtResource("5_pkg7o")
-skeleton = NodePath("../..")
-
-[node name="Collider" type="CollisionShape3D" parent="SeedPlot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.253662, 0)
-shape = SubResource("BoxShape3D_gbfbk")
 
 [node name="MoneyDisplay" type="RichTextLabel" parent="."]
 offset_left = 20.0
