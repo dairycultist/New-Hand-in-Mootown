@@ -1,20 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=12 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
-[ext_resource type="Script" uid="uid://c8isjemgcwtr4" path="res://terrain.gd" id="2_gbfbk"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_pkg7o"]
-noise_type = 3
-frequency = 0.008
-fractal_octaves = 2
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gbfbk"]
-noise = SubResource("FastNoiseLite_pkg7o")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_036b0"]
 shader = ExtResource("4_aqk2v")
@@ -29,6 +20,11 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 [sub_resource type="Environment" id="Environment_gbfbk"]
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aqk2v"]
+size = Vector2(10, 10)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
 
 [node name="World" type="Node3D"]
 
@@ -48,12 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Hold Anchor" type="Node3D" parent="Player/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
-
-[node name="Terrain" type="StaticBody3D" parent="."]
-script = ExtResource("2_gbfbk")
-SIZE = 64
-TEX = SubResource("NoiseTexture2D_gbfbk")
-MAT = ExtResource("3_gbfbk")
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -80,3 +70,12 @@ offset_bottom = 40.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
+
+[node name="Terrain" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain"]
+material_override = ExtResource("3_gbfbk")
+mesh = SubResource("PlaneMesh_aqk2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
+shape = SubResource("WorldBoundaryShape3D_036b0")

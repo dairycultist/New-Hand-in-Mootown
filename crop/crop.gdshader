@@ -17,7 +17,7 @@ void vertex() {
 }
 
 void fragment() {
-	
+
 	float growth_pow = pow(growth, 4.0);
 
 	// convert from sRGB to linear RGB
