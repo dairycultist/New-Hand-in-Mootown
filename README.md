@@ -14,10 +14,6 @@ them to adolecense, then either sell them for profit or just keep em around.
 AND you can also grow crops in a little garden area, which you can feed to the
 gals
 
-mechanic is picking stuff up. when something bumps into something else, an
-interaction occurs. for example, a bag of 10 carrots seeds being placed onto
-an empty garden plot will plant 1 seed in the plot, removing it from the bag.
-
 ## Credits
 
 ![skybox](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)

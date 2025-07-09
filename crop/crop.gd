@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends "res://pickup_object.gd"
 
 var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
 var seconds_to_fully_grown : int
@@ -50,7 +50,7 @@ func set_locked(value: bool):
 	axis_lock_angular_y = value
 	axis_lock_angular_z = value
 
-func crop_process_force(force: Vector3):
+func while_pickup(force: Vector3):
 	
 	# wait until the object has a really high upward force on it
 	# before unfreezing

@@ -16,8 +16,8 @@ var CARROT := preload("res://crop/carrot.tscn")
 @export var max_fall_speed := 32
 
 var camera_pitch := 0.0
-var held : RigidBody3D
-var looking_holdable : RigidBody3D
+var held_pickup : RigidBody3D
+var looking_pickup : RigidBody3D
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -29,28 +29,26 @@ func _process(delta: float) -> void:
 		PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
 	)
 	
-	if ray_result.has("collider") and ray_result.collider is RigidBody3D:
-		looking_holdable = ray_result.collider
+	if ray_result.has("collider") and ray_result.collider.is_in_group("Pickup"):
+		looking_pickup = ray_result.collider
 	else:
-		looking_holdable = null
+		looking_pickup = null
 	
 	crosshair.material.set(
 		"shader_parameter/size",
 		lerpf(
 			crosshair.material.get("shader_parameter/size"), 
-			0.2 if held else 0.1 if looking_holdable else 0.02,
+			0.2 if held_pickup else 0.1 if looking_pickup else 0.02,
 			delta * 15
 		)
 	)
 	
-	if held != null:
+	if held_pickup != null:
 		# apply force that is the difference in position
-		var force := (hold_anchor.global_position - held.global_position) * 100
+		var force := (hold_anchor.global_position - held_pickup.global_position) * 100
 		
-		held.apply_central_force(force)
-		
-		if "crop_process_force" in held:
-			held.crop_process_force(force)
+		held_pickup.apply_central_force(force)
+		held_pickup.while_pickup(force)
 	
 	# movement
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
@@ -77,16 +75,16 @@ func _input(event):
 	if (event.is_action_pressed("interact")):
 		
 		# picking up stuff
-		if looking_holdable:
-			held = looking_holdable
-			held.linear_damp = 10
+		if looking_pickup:
+			held_pickup = looking_pickup
+			held_pickup.on_pickup()
 	
 	if (event.is_action_released("interact")):
 		
 		# dropping stuff
-		if held:
-			held.linear_damp = 0
-			held = null
+		if held_pickup:
+			held_pickup.off_pickup()
+			held_pickup = null
 	
 	if event.is_action_pressed("pause"):
 		
