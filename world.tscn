@@ -76,6 +76,8 @@ text = "¢0"
 [node name="CarrotSeeds" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22516, 1.23995, 1.01106)
 script = ExtResource("6_gbfbk")
+crop = ExtResource("5_dwbse")
+seed_name = "Carrot Seeds"
 
 [node name="Mesh" type="MeshInstance3D" parent="CarrotSeeds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)

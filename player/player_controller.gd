@@ -37,6 +37,17 @@ func _process(delta: float) -> void:
 			looking_pickup = null
 			set_display_text("")
 	
+	else:
+		
+		# apply force that is the difference in position
+		var force := (hold_anchor.global_position - held_pickup.global_position) * 100
+		
+		held_pickup.apply_central_force(force)
+		held_pickup.while_pickup(force)
+		
+		# constantly update display text, since it can potentially change while holding
+		set_display_text(held_pickup.get_display_string())
+	
 	$Crosshair.material.set(
 		"shader_parameter/size",
 		lerpf(
@@ -45,13 +56,6 @@ func _process(delta: float) -> void:
 			delta * 15
 		)
 	)
-	
-	if held_pickup != null:
-		# apply force that is the difference in position
-		var force := (hold_anchor.global_position - held_pickup.global_position) * 100
-		
-		held_pickup.apply_central_force(force)
-		held_pickup.while_pickup(force)
 	
 	# movement
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
@@ -81,7 +85,6 @@ func _input(event):
 		if looking_pickup:
 			held_pickup = looking_pickup
 			held_pickup.on_pickup()
-			set_display_text(held_pickup.get_display_string())
 	
 	if (event.is_action_released("interact")):
 		
