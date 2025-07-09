@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=15 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
@@ -25,6 +25,9 @@ size = Vector2(10, 10)
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_036b0"]
+
+[sub_resource type="Theme" id="Theme_dwbse"]
+default_font_size = 50
 
 [node name="World" type="Node3D"]
 
@@ -66,3 +69,12 @@ skeleton = NodePath("../..")
 
 [node name="Carrot" parent="GardenPlot" instance=ExtResource("5_dwbse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.55422, 0.124048, 3.00946)
+
+[node name="MoneyDisplay" type="RichTextLabel" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 255.0
+offset_bottom = 92.0
+theme = SubResource("Theme_dwbse")
+theme_override_colors/default_color = Color(0.993713, 0.576362, 0, 1)
+text = "¢0"

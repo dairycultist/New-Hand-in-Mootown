@@ -20,6 +20,8 @@ garden plot will plant a carrot in the plot, removing one seed from the bag.
 
 `10 Carrot Seeds`
 
+alongside "pickups," probably also gonna need to check for "buttons"
+
 ## Credits
 
 ![skybox](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)
