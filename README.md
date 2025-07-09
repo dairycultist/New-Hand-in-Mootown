@@ -6,7 +6,17 @@ world is pre-hand-crafted, like slime rancher, with pre-determined regions for g
 
 [jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
 
-I should make a tiny game about ranching moo moos, and they have stats like weight and such, and different breeds that sell for different amounts on the market (every cowgirl can be sold for a base rate, but if someone's asking for a specific type at a certain min weight, you get a commission bonus). you buy juvenile ones, raise them to adolecense, then either sell them for profit or just keep em around. AND you can also grow crops in a little garden area, which you can feed to the gals
+tiny game about ranching moo moos, and they have stats like weight and such, and
+different breeds that sell for different amounts on the market (every cowgirl
+can be sold for a base rate, but if someone's asking for a specific type at a
+certain min weight, you get a commission bonus). you buy juvenile ones, raise
+them to adolecense, then either sell them for profit or just keep em around.
+AND you can also grow crops in a little garden area, which you can feed to the
+gals
+
+mechanic is picking stuff up. when something bumps into something else, an
+interaction occurs. for example, a bag of 10 carrots seeds being placed onto
+an empty garden plot will plant 1 seed in the plot, removing it from the bag.
 
 ## Credits
 

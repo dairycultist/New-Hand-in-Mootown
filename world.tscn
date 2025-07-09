@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=16 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player_controller.gd" id="1_fj7yv"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://crosshair.gdshader" id="4_aqk2v"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://crop/carrot.tscn" id="5_dwbse"]
+[ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://garden_plot.obj" id="5_pkg7o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -26,12 +28,16 @@ size = Vector2(10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_aqk2v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_036b0"]
+
 [node name="World" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("crosshair", "hold_anchor", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 script = ExtResource("1_fj7yv")
-crosshair = NodePath("../Crosshair/Panel")
+crosshair = NodePath("../Crosshair")
 hold_anchor = NodePath("Camera3D/Hold Anchor")
 camera = NodePath("Camera3D")
 
@@ -48,8 +54,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
-[node name="Crosshair" type="Control" parent="."]
-layout_mode = 3
+[node name="Crosshair" type="Panel" parent="."]
+material = SubResource("ShaderMaterial_036b0")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -62,12 +68,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="Crosshair"]
-material = SubResource("ShaderMaterial_036b0")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
 
@@ -79,3 +79,20 @@ mesh = SubResource("PlaneMesh_aqk2v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
+
+[node name="Box" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.32447, 1.69896, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Box"]
+shape = SubResource("BoxShape3D_aqk2v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Box"]
+material_override = ExtResource("3_gbfbk")
+mesh = SubResource("BoxMesh_036b0")
+
+[node name="GardenPlot" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.55422, 0, 3.00946)
+mesh = ExtResource("5_pkg7o")
+
+[node name="Carrot" parent="GardenPlot" instance=ExtResource("5_dwbse")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 1.24048, 0)
