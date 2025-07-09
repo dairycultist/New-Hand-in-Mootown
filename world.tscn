@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=21 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://pickup/seeds/pickup_seeds.gd" id="6_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://pickup/seeds/carrot_seeds.obj" id="7_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://pickup/seeds/carrot_seeds.png" id="8_ioo17"]
+[ext_resource type="ArrayMesh" uid="uid://ck6428sdf00wo" path="res://sell_box.obj" id="9_ioo17"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
 panorama = ExtResource("5_036b0")
@@ -34,6 +35,15 @@ metallic_specular = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_pkg7o"]
 size = Vector3(0.42, 0.705, 0.6)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ioo17"]
+size = Vector3(1.90405, 0.979858, 0.325684)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wse8f"]
+size = Vector3(0.326, 0.98, 1.904)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ic0uy"]
+size = Vector3(1.5, 1, 1.5)
+
 [node name="World" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("1_pkg7o")]
@@ -47,11 +57,11 @@ environment = SubResource("Environment_gbfbk")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+[node name="Mesh" type="MeshInstance3D" parent="Ground"]
 material_override = ExtResource("3_gbfbk")
 mesh = SubResource("PlaneMesh_aqk2v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+[node name="Collider" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
 
 [node name="SeedPlot" parent="." instance=ExtResource("4_gbfbk")]
@@ -81,3 +91,31 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wse8f")
 [node name="Collider" type="CollisionShape3D" parent="CarrotSeeds"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525879, 0)
 shape = SubResource("BoxShape3D_pkg7o")
+
+[node name="SellBox" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28462, -2.38419e-07, -3.23954)
+
+[node name="Mesh" type="MeshInstance3D" parent="SellBox"]
+mesh = ExtResource("9_ioo17")
+skeleton = NodePath("../..")
+
+[node name="Coll1" type="CollisionShape3D" parent="SellBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.81)
+shape = SubResource("BoxShape3D_ioo17")
+
+[node name="Coll2" type="CollisionShape3D" parent="SellBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.78)
+shape = SubResource("BoxShape3D_ioo17")
+
+[node name="Coll3" type="CollisionShape3D" parent="SellBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, 0.5, 0)
+shape = SubResource("BoxShape3D_wse8f")
+
+[node name="Coll4" type="CollisionShape3D" parent="SellBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 0.5, 0)
+shape = SubResource("BoxShape3D_wse8f")
+
+[node name="SellRegion" type="StaticBody3D" parent="SellBox" groups=["SellBox"]]
+
+[node name="Collider" type="CollisionShape3D" parent="SellBox/SellRegion"]
+shape = SubResource("BoxShape3D_ic0uy")

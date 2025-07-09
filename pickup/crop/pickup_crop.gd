@@ -1,8 +1,10 @@
 extends "res://pickup/pickup_object.gd"
 
+@export var money_worth: int = 1
+
 var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
-var seconds_to_fully_grown : int
-var mat : Material
+var seconds_to_fully_grown: int
+var mat: Material
 
 # also probably an "initialize_as_pickup"
 func initialize_as_planted():
@@ -66,3 +68,11 @@ func while_pickup(force: Vector3):
 		reparent(get_node("/root/World")) # un-parent from DirtPatch we're planted in
 		$UnearthCropSound.play() # play a pop sound
 		# spawn some dirt particles
+
+func on_bump(bumpee: Node3D):
+	
+	if bumpee.is_in_group("SellBox"):
+		
+		$SellCropSound.play()
+		GlobalData.attempt_change_money_by(money_worth)
+		queue_free()
