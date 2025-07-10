@@ -6,7 +6,7 @@ void vertex() {
 	
 	mat4 billboard_matrix = mat4(
         INV_VIEW_MATRIX[0],
-        INV_VIEW_MATRIX[1],
+        vec4(0, 1, 0, 0),
         INV_VIEW_MATRIX[2],
         MODEL_MATRIX[3]
     );
