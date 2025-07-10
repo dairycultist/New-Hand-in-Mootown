@@ -22,7 +22,18 @@ void vertex() {
 		vec4(0, 0, 0, 1)
 	);
 	
-    MODELVIEW_MATRIX = VIEW_MATRIX * billboard_matrix * sideturn_matrix;
+	float b = sin(TIME * 2.0 + NODE_POSITION_WORLD.x) * 0.2 + sin(TIME * 5.4 + NODE_POSITION_WORLD.y) * 0.05;
+	float cosb = cos(b);
+	float sinb = sin(b);
+	
+	mat4 sway_matrix = mat4(
+		vec4(1, 0, 0, 0),
+		vec4(0, cosb, -sinb, 0),
+		vec4(0, sinb, cosb, 0),
+		vec4(0, 0, 0, 1)
+	);
+	
+    MODELVIEW_MATRIX = VIEW_MATRIX * billboard_matrix * sideturn_matrix * sway_matrix;
 }
 
 void fragment() {
