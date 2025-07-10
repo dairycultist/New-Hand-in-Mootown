@@ -1,14 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=13 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
-[ext_resource type="PackedScene" uid="uid://wqqdplkvrx2k" path="res://seed_plot.tscn" id="4_gbfbk"]
+[ext_resource type="PackedScene" uid="uid://wqqdplkvrx2k" path="res://objects/static/seed_plot.tscn" id="4_gbfbk"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="5_036b0"]
-[ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://pickup/crop/carrot.tscn" id="5_dwbse"]
-[ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://pickup/seeds/pickup_seeds.gd" id="6_gbfbk"]
-[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://pickup/seeds/carrot_seeds.obj" id="7_gbfbk"]
-[ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://pickup/seeds/carrot_seeds.png" id="8_ioo17"]
-[ext_resource type="ArrayMesh" uid="uid://ck6428sdf00wo" path="res://sell_box.obj" id="9_ioo17"]
+[ext_resource type="PackedScene" uid="uid://d2ir544nj1vfy" path="res://objects/pickup/seeds/carrot_seeds.tscn" id="5_dwbse"]
+[ext_resource type="PackedScene" uid="uid://nmq6pcw2eklr" path="res://objects/static/sell_box.tscn" id="6_pkg7o"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
 panorama = ExtResource("5_036b0")
@@ -20,40 +17,33 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
+[sub_resource type="Theme" id="Theme_dwbse"]
+default_font_size = 50
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_aqk2v"]
 size = Vector2(10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
 
-[sub_resource type="Theme" id="Theme_dwbse"]
-default_font_size = 50
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
-albedo_texture = ExtResource("8_ioo17")
-metallic_specular = 0.0
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_pkg7o"]
-size = Vector3(0.42, 0.705, 0.6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ioo17"]
-size = Vector3(1.90405, 0.979858, 0.325684)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wse8f"]
-size = Vector3(0.326, 0.98, 1.904)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ic0uy"]
-size = Vector3(1.5, 1, 1.5)
-
 [node name="World" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_pkg7o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_gbfbk")
+
+[node name="MoneyDisplay" type="RichTextLabel" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 255.0
+offset_bottom = 92.0
+theme = SubResource("Theme_dwbse")
+theme_override_colors/default_color = Color(0.993713, 0.576362, 0, 1)
+text = "¢0"
+
+[node name="Player" parent="." instance=ExtResource("1_pkg7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
@@ -67,55 +57,8 @@ shape = SubResource("WorldBoundaryShape3D_036b0")
 [node name="SeedPlot" parent="." instance=ExtResource("4_gbfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43746, 0.0990771, 3.05075)
 
-[node name="MoneyDisplay" type="RichTextLabel" parent="."]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 255.0
-offset_bottom = 92.0
-theme = SubResource("Theme_dwbse")
-theme_override_colors/default_color = Color(0.993713, 0.576362, 0, 1)
-text = "¢0"
-
-[node name="CarrotSeeds" type="RigidBody3D" parent="."]
+[node name="CarrotSeeds" parent="." instance=ExtResource("5_dwbse")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22516, 1.23995, 1.01106)
-script = ExtResource("6_gbfbk")
-crop = ExtResource("5_dwbse")
-seed_name = "Carrot Seeds"
 
-[node name="Mesh" type="MeshInstance3D" parent="CarrotSeeds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
-mesh = ExtResource("7_gbfbk")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_wse8f")
-
-[node name="Collider" type="CollisionShape3D" parent="CarrotSeeds"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525879, 0)
-shape = SubResource("BoxShape3D_pkg7o")
-
-[node name="SellBox" type="StaticBody3D" parent="."]
+[node name="SellBox" parent="." instance=ExtResource("6_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28462, -2.38419e-07, -3.23954)
-
-[node name="Mesh" type="MeshInstance3D" parent="SellBox"]
-mesh = ExtResource("9_ioo17")
-skeleton = NodePath("../..")
-
-[node name="Coll1" type="CollisionShape3D" parent="SellBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.81)
-shape = SubResource("BoxShape3D_ioo17")
-
-[node name="Coll2" type="CollisionShape3D" parent="SellBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.78)
-shape = SubResource("BoxShape3D_ioo17")
-
-[node name="Coll3" type="CollisionShape3D" parent="SellBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, 0.5, 0)
-shape = SubResource("BoxShape3D_wse8f")
-
-[node name="Coll4" type="CollisionShape3D" parent="SellBox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 0.5, 0)
-shape = SubResource("BoxShape3D_wse8f")
-
-[node name="SellRegion" type="StaticBody3D" parent="SellBox" groups=["SellBox"]]
-
-[node name="Collider" type="CollisionShape3D" parent="SellBox/SellRegion"]
-shape = SubResource("BoxShape3D_ic0uy")

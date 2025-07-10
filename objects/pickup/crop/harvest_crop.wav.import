@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dtcue513udfmc"
-path="res://.godot/imported/unearth_crop.wav-b58c65a4f0bc2486dcc1744591613435.sample"
+path="res://.godot/imported/harvest_crop.wav-09959adb094970056f25635b80c22ab6.sample"
 
 [deps]
 
-source_file="res://pickup/crop/unearth_crop.wav"
-dest_files=["res://.godot/imported/unearth_crop.wav-b58c65a4f0bc2486dcc1744591613435.sample"]
+source_file="res://objects/pickup/crop/harvest_crop.wav"
+dest_files=["res://.godot/imported/harvest_crop.wav-09959adb094970056f25635b80c22ab6.sample"]
 
 [params]
 

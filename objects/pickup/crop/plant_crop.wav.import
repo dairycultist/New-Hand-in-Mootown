@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://jqambjpetihp"
-path="res://.godot/imported/plant_crop.wav-08bb11aa8d2fcad9e9903d45b12ce3b0.sample"
+path="res://.godot/imported/plant_crop.wav-c7ee0777b7e435ffd4e9755e2b949736.sample"
 
 [deps]
 
-source_file="res://pickup/crop/plant_crop.wav"
-dest_files=["res://.godot/imported/plant_crop.wav-08bb11aa8d2fcad9e9903d45b12ce3b0.sample"]
+source_file="res://objects/pickup/crop/plant_crop.wav"
+dest_files=["res://.godot/imported/plant_crop.wav-c7ee0777b7e435ffd4e9755e2b949736.sample"]
 
 [params]
 

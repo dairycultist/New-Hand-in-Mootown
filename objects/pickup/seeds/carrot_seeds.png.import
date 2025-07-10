@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgti3bstqph40"
-path.s3tc="res://.godot/imported/carrot.png-71e9bb3e12b197db4fb8fbfce91b995b.s3tc.ctex"
+uid="uid://dc2kss46qjvhv"
+path.s3tc="res://.godot/imported/carrot_seeds.png-5ce8bc2726a351477a3d7aaca17df3e6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://pickup/crop/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-71e9bb3e12b197db4fb8fbfce91b995b.s3tc.ctex"]
+source_file="res://objects/pickup/seeds/carrot_seeds.png"
+dest_files=["res://.godot/imported/carrot_seeds.png-5ce8bc2726a351477a3d7aaca17df3e6.s3tc.ctex"]
 
 [params]
 

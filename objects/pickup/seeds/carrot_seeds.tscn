@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2ir544nj1vfy"]
+
+[ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://objects/pickup/seeds/pickup_seeds.gd" id="1_yit3m"]
+[ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://objects/pickup/crop/carrot.tscn" id="2_xxocj"]
+[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://objects/pickup/seeds/carrot_seeds.obj" id="3_43kpr"]
+[ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://objects/pickup/seeds/carrot_seeds.png" id="4_m8v3o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
+albedo_texture = ExtResource("4_m8v3o")
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkg7o"]
+size = Vector3(0.42, 0.705, 0.6)
+
+[node name="CarrotSeeds" type="RigidBody3D"]
+script = ExtResource("1_yit3m")
+crop = ExtResource("2_xxocj")
+seed_name = "Carrot Seeds"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = ExtResource("3_43kpr")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_wse8f")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525879, 0)
+shape = SubResource("BoxShape3D_pkg7o")

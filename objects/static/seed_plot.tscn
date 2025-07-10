@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://wqqdplkvrx2k"]
 
-[ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://garden_plot.obj" id="1_671cu"]
+[ext_resource type="ArrayMesh" uid="uid://eig02etgobip" path="res://objects/static/seed_plot.obj" id="1_671cu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
 size = Vector3(1.21, 0.493, 1.19)

@@ -1,4 +1,4 @@
-extends "res://pickup/pickup_object.gd"
+extends "res://objects/pickup/pickup_object.gd"
 
 @export var crop: PackedScene
 @export var seed_name: String = "Seeds"

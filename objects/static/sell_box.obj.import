@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ck6428sdf00wo"
+path="res://.godot/imported/sell_box.obj-5265eee336e05a733217816927dcecad.mesh"
+
+[deps]
+
+files=["res://.godot/imported/sell_box.obj-5265eee336e05a733217816927dcecad.mesh"]
+
+source_file="res://objects/static/sell_box.obj"
+dest_files=["res://.godot/imported/sell_box.obj-5265eee336e05a733217816927dcecad.mesh", "res://.godot/imported/sell_box.obj-5265eee336e05a733217816927dcecad.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false
