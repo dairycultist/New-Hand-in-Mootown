@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgti3bstqph40"
-path.s3tc="res://.godot/imported/carrot.png-b74b2d72ff07d291c7f9dd39f7eee226.s3tc.ctex"
+uid="uid://dbxswcwes51wf"
+path.s3tc="res://.godot/imported/turnip.png-952429b13d4abf0841ef5f16da841580.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/pickup/crop/carrot.png"
-dest_files=["res://.godot/imported/carrot.png-b74b2d72ff07d291c7f9dd39f7eee226.s3tc.ctex"]
+source_file="res://objects/pickup/crop/turnip/turnip.png"
+dest_files=["res://.godot/imported/turnip.png-952429b13d4abf0841ef5f16da841580.s3tc.ctex"]
 
 [params]
 

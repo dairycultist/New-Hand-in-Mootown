@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c3c8pnec01dt6"]
 
 [ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://objects/pickup/crop/pickup_crop.gd" id="1_44d0k"]
-[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://objects/pickup/crop/carrot.obj" id="2_pob7t"]
+[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://objects/pickup/crop/carrot/carrot.obj" id="2_pob7t"]
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://objects/pickup/crop/crop.gdshader" id="3_08lrh"]
-[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://objects/pickup/crop/carrot.png" id="4_0dqjg"]
+[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://objects/pickup/crop/carrot/carrot.png" id="4_0dqjg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_08lrh"]
 render_priority = 0
@@ -17,6 +17,7 @@ height = 0.634398
 
 [node name="Carrot" type="RigidBody3D"]
 script = ExtResource("1_44d0k")
+display_name = "Carrot"
 money_worth = 6
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

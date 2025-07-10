@@ -4,6 +4,7 @@ var SOUND_PLANT = preload("res://objects/pickup/crop/plant_crop.wav")
 var SOUND_HARVEST = preload("res://objects/pickup/crop/harvest_crop.wav")
 var SOUND_SELL = preload("res://objects/pickup/crop/sell_crop.wav")
 
+@export var display_name: String = ""
 @export var money_worth: int = 1
 
 var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
@@ -60,7 +61,7 @@ func set_locked(value: bool):
 	axis_lock_angular_z = value
 
 func get_display_string() -> String:
-	return "Carrot"
+	return display_name
 
 func while_pickup(force: Vector3):
 	

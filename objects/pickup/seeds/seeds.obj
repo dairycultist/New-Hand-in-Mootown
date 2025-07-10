@@ -1,6 +1,5 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib carrot_seeds.mtl
 o Cube
 v 0.210000 0.600000 -0.300000
 v 0.210000 0.000000 -0.300000

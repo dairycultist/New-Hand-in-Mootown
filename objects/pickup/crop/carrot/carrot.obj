@@ -1,6 +1,5 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib carrot.mtl
 o Cube
 v -0.100000 1.000000 0.000000
 v -0.100000 3.000000 -2.000000
