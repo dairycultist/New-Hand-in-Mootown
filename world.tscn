@@ -58,7 +58,11 @@ shape = SubResource("WorldBoundaryShape3D_036b0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43746, 0.0990771, 3.05075)
 
 [node name="CarrotSeeds" parent="." instance=ExtResource("5_dwbse")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.22516, 1.23995, 1.01106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64322, 0.313802, 1.011)
+money_cost = 0
+
+[node name="CarrotSeeds2" parent="." instance=ExtResource("5_dwbse")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.64322, 0.313802, -0.0987726)
 
 [node name="SellBox" parent="." instance=ExtResource("6_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28462, -2.38419e-07, -3.23954)

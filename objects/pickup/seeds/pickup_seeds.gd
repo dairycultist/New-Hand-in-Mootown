@@ -1,28 +1,36 @@
 extends "res://objects/pickup/pickup_object.gd"
 
+# TODO separate into a pickup_buyable later that this extends
 var SOUND_BUY = preload("res://objects/pickup/seeds/buy.wav")
+@export var bought: bool = false
+@export var money_cost: int = 10
+
+
 
 @export var crop: PackedScene
 @export var seed_name: String = "Seeds"
 @export var seed_count: int = 10
 
-# might separate into a pickup_buyable later that this extends
-@export var bought: bool = false
-@export var money_cost: int = 10
+func _ready() -> void:
+	
+	super._ready()
+	freeze = true
 
 func get_display_string() -> String:
 	
 	if bought:
 		return str(seed_count) + " " + seed_name
 	else:
-		return str(seed_count) + " " + seed_name + " (¢" + str(money_cost) + ")"
+		return str(seed_count) + " " + seed_name + "\nCosts ¢" + str(money_cost)
 
 func on_pickup():
 	
 	super.on_pickup()
 	
-	if not bought:
+	if not bought and GlobalData.attempt_change_money_by(-money_cost):
+		
 		GlobalSound.play(SOUND_BUY)
+		freeze = false
 		bought = true
 
 func on_bump(bumpee: Node3D):

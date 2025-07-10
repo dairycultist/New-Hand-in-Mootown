@@ -11,7 +11,7 @@ shader = ExtResource("2_rkbax")
 shader_parameter/size = 0.2
 
 [sub_resource type="Theme" id="Theme_rkbax"]
-default_font_size = 30
+default_font_size = 24
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hold_anchor", "camera")]
 script = ExtResource("1_4flbx")
@@ -64,10 +64,11 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 30.0
-offset_top = -30.0
-offset_right = 330.0
-offset_bottom = 30.0
+offset_top = -40.0
+offset_right = 271.0
+offset_bottom = 40.0
 grow_vertical = 2
 theme = SubResource("Theme_rkbax")
-text = "Carrot"
+text = "Carrot
+Carrot"
 vertical_alignment = 1
