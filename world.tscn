@@ -66,20 +66,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 
-[node name="Mesh" type="MeshInstance3D" parent="Ground"]
+[node name="GroundMesh" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("PlaneMesh_aqk2v")
 surface_material_override/0 = SubResource("StandardMaterial3D_ioo17")
 
-[node name="Collider" type="CollisionShape3D" parent="Ground"]
+[node name="GroundCollider" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")
 
 [node name="GrassMultiMesh" type="MultiMeshInstance3D" parent="Ground"]
 material_override = SubResource("ShaderMaterial_ic0uy")
 multimesh = SubResource("MultiMesh_ioo17")
-
-[node name="Grass" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10175, -2.38419e-07, -0.193145)
-mesh = ExtResource("4_ioo17")
 
 [node name="SeedPlot" parent="." instance=ExtResource("4_gbfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43746, 0.0990771, 3.05075)
