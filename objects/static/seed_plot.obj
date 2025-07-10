@@ -1,6 +1,6 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib garden_plot.mtl
+mtllib seed_plot.mtl
 o DirtPatch
 v 1.705429 -0.528937 -0.219336
 v -4.140017 0.973078 4.039247
