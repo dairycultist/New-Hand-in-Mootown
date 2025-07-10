@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=21 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Texture2D" uid="uid://brei1ext67lac" path="res://grass/grass_ground.png" id="3_gbfbk"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://byygxrc8glpfi" path="res://grass/grass.png" id="5_wse8f"]
 [ext_resource type="PackedScene" uid="uid://nmq6pcw2eklr" path="res://objects/static/sell_box.tscn" id="6_pkg7o"]
 [ext_resource type="PackedScene" uid="uid://cbf357pngcxbs" path="res://objects/pickup/seeds/turnip/turnip_seeds.tscn" id="9_wse8f"]
+[ext_resource type="PackedScene" uid="uid://c057ydldlgr2x" path="res://objects/pickup/bottles/milk_bottle.tscn" id="11_ic0uy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dwbse"]
 panorama = ExtResource("5_036b0")
@@ -100,3 +101,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.753508, 0.0990771, 3.05075)
 
 [node name="SeedPlot4" parent="." instance=ExtResource("4_gbfbk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4067, 0.0990771, 3.05075)
+
+[node name="MilkBottle" parent="." instance=ExtResource("11_ic0uy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6228, 0.936947, -1.01326)
