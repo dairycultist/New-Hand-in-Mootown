@@ -17,11 +17,11 @@ func get_display_string() -> String:
 func on_pickup():
 	linear_damp = 10
 
-func while_pickup(force: Vector3):
+func while_pickup(_force: Vector3):
 	pass
 
 func off_pickup():
 	linear_damp = 0
 
-func on_bump(bumpee: Node3D):
+func on_bump(_bumpee: Node3D):
 	pass

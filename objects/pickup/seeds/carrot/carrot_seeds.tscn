@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://objects/pickup/seeds/pickup_seeds.gd" id="1_yit3m"]
 [ext_resource type="PackedScene" uid="uid://c3c8pnec01dt6" path="res://objects/pickup/crop/carrot.tscn" id="2_xxocj"]
-[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://objects/pickup/seeds/carrot_seeds.obj" id="3_43kpr"]
-[ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://objects/pickup/seeds/carrot_seeds.png" id="4_m8v3o"]
+[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://objects/pickup/seeds/seeds.obj" id="3_43kpr"]
+[ext_resource type="Texture2D" uid="uid://dc2kss46qjvhv" path="res://objects/pickup/seeds/carrot/carrot_seeds.png" id="4_m8v3o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wse8f"]
 albedo_texture = ExtResource("4_m8v3o")
