@@ -44,5 +44,6 @@ void fragment() {
 		discard;
 	}
 
-	ALBEDO = c.rgb;
+	// (approximately) convert from sRGB to linear RGB
+	ALBEDO = c.rgb * c.rgb;
 }

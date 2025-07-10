@@ -1,7 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=19 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
-[ext_resource type="Material" uid="uid://qlv7l76vqd6d" path="res://debug.tres" id="3_gbfbk"]
+[ext_resource type="Texture2D" uid="uid://brei1ext67lac" path="res://grass/grass_ground.png" id="3_gbfbk"]
 [ext_resource type="PackedScene" uid="uid://wqqdplkvrx2k" path="res://objects/static/seed_plot.tscn" id="4_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://nfv5vw845bdt" path="res://grass/grass.obj" id="4_ioo17"]
 [ext_resource type="Shader" uid="uid://bc6mjtagtwrw1" path="res://grass.gdshader" id="4_wse8f"]
@@ -25,6 +25,10 @@ default_font_size = 50
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aqk2v"]
 size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioo17"]
+albedo_texture = ExtResource("3_gbfbk")
+uv1_scale = Vector3(10, 10, 10)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_036b0"]
 
@@ -63,8 +67,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground"]
-material_override = ExtResource("3_gbfbk")
 mesh = SubResource("PlaneMesh_aqk2v")
+surface_material_override/0 = SubResource("StandardMaterial3D_ioo17")
 
 [node name="Collider" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_036b0")

@@ -1,6 +1,5 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib grass.mtl
 o Plane.001
 v -0.200000 0.400000 -0.000000
 v -0.200000 0.000000 0.000000
