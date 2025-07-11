@@ -2,6 +2,8 @@ extends RigidBody3D
 
 @export var SOUND_BUMP: AudioStreamWAV
 
+var time_of_last_bump_sound := 0
+
 func _ready() -> void:
 	
 	# label this object so the player knows it can be picked up
@@ -27,9 +29,11 @@ func off_pickup():
 
 func on_bump(_bumpee: Node3D):
 	
-	if SOUND_BUMP:
+	if SOUND_BUMP and Time.get_ticks_msec() - time_of_last_bump_sound > 300:
+		
+		time_of_last_bump_sound = Time.get_ticks_msec()
 		
 		# map to [0,1]
 		var volume := 1.0 - 1.0 / (linear_velocity.length() * 0.1 + 1.0)
 		
-		GlobalSound.play_param(SOUND_BUMP, volume, 1.0, position)
+		GlobalSound.play_param(SOUND_BUMP, volume, volume / 10 + 0.9, position)
