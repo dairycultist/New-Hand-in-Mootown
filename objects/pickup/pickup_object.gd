@@ -32,4 +32,4 @@ func on_bump(_bumpee: Node3D):
 		# map to [0,1]
 		var volume := 1.0 - 1.0 / (linear_velocity.length() * 0.1 + 1.0)
 		
-		GlobalSound.play_param(SOUND_BUMP, volume, 1.0)
+		GlobalSound.play_param(SOUND_BUMP, volume, 1.0, position)
