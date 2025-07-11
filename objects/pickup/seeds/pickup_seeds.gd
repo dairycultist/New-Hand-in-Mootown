@@ -35,6 +35,8 @@ func on_pickup():
 
 func on_bump(bumpee: Node3D):
 	
+	super.on_bump(bumpee)
+	
 	if bumpee.is_in_group("SeedPlot") and bumpee.get_child_count() == 2:
 		
 		var to_plant = crop.instantiate()

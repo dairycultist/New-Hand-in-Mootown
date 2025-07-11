@@ -11,3 +11,10 @@ func play(sound: AudioStreamWAV):
 	
 	source.stream = sound
 	source.play()
+
+func play_param(sound: AudioStreamWAV, volume: float, pitch: float):
+	
+	source.stream = sound
+	source.volume_linear = volume
+	source.pitch_scale = pitch
+	source.play()

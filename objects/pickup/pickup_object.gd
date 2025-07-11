@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+@export var SOUND_BUMP: AudioStreamWAV
+
 func _ready() -> void:
 	
 	# label this object so the player knows it can be picked up
@@ -24,4 +26,10 @@ func off_pickup():
 	linear_damp = 0
 
 func on_bump(_bumpee: Node3D):
-	pass
+	
+	if SOUND_BUMP:
+		
+		# map to [0,1]
+		var volume := 1.0 - 1.0 / (linear_velocity.length() * 0.1 + 1.0)
+		
+		GlobalSound.play_param(SOUND_BUMP, volume, 1.0)

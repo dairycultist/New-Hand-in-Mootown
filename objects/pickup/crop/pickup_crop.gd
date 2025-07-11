@@ -76,6 +76,8 @@ func while_pickup(force: Vector3):
 
 func on_bump(bumpee: Node3D):
 	
+	super.on_bump(bumpee)
+	
 	if bumpee.is_in_group("SellBox"):
 		
 		GlobalSound.play(SOUND_SELL)
