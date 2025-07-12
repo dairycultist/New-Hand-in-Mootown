@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5bbin7l8thaw"
-path.s3tc="res://.godot/imported/debug.png-ee3fc424660186d9e01e865e57ffb986.s3tc.ctex"
+uid="uid://t0qxmrbe8ifx"
+path.s3tc="res://.godot/imported/stone_wall.png-56d289852348bb9aab2886dfca3598fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://debug.png"
-dest_files=["res://.godot/imported/debug.png-ee3fc424660186d9e01e865e57ffb986.s3tc.ctex"]
+source_file="res://world/stone_wall.png"
+dest_files=["res://.godot/imported/stone_wall.png-56d289852348bb9aab2886dfca3598fa.s3tc.ctex"]
 
 [params]
 
