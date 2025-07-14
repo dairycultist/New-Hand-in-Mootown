@@ -1,15 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://nmq6pcw2eklr"]
 
-[ext_resource type="ArrayMesh" uid="uid://ck6428sdf00wo" path="res://objects/static/sell_box.obj" id="1_rbp4k"]
+[ext_resource type="ArrayMesh" uid="uid://ci3va3bm1ros8" path="res://objects/static/sell_box.obj" id="1_rbp4k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ioo17"]
-size = Vector3(1.90405, 0.979858, 0.325684)
+size = Vector3(1.90405, 0.903503, 0.108704)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wse8f"]
-size = Vector3(0.326, 0.98, 1.904)
+size = Vector3(0.108801, 0.926523, 1.904)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ic0uy"]
-size = Vector3(1.5, 1, 1.5)
+size = Vector3(1.5, 0.60376, 1.5)
 
 [node name="SellBox" type="StaticBody3D"]
 
@@ -18,22 +18,23 @@ mesh = ExtResource("1_rbp4k")
 skeleton = NodePath("../..")
 
 [node name="Coll1" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.81)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.461823, 0.915131)
 shape = SubResource("BoxShape3D_ioo17")
 
 [node name="Coll2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.78)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.430286, -0.890788)
 shape = SubResource("BoxShape3D_ioo17")
 
 [node name="Coll3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8886, 0.45385, 0)
 shape = SubResource("BoxShape3D_wse8f")
 
 [node name="Coll4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.79, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.895543, 0.473262, 0)
 shape = SubResource("BoxShape3D_wse8f")
 
 [node name="SellRegion" type="StaticBody3D" parent="." groups=["SellBox"]]
 
 [node name="Collider" type="CollisionShape3D" parent="SellRegion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19812, 0)
 shape = SubResource("BoxShape3D_ic0uy")

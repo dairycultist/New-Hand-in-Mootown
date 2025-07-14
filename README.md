@@ -39,8 +39,8 @@ https://dairycultist.itch.io/new-hand-in-mootown
 
 add onion and potato and that's probably good enough for the demo
 
-get a bubbly font
-
 ## Credits
 
 ![skybox made with AI that I should probably replace before DEMO release](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)
+
+![Font source](https://www.dafont.com/game-bubble.font?text=Carrot+%28%A210%29)

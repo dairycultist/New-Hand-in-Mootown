@@ -2,15 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player/player_controller.gd" id="1_4flbx"]
 [ext_resource type="Shader" uid="uid://jssol36neqch" path="res://player/crosshair.gdshader" id="2_rkbax"]
+[ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://theme.tres" id="3_g1dw6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g1dw6"]
 shader = ExtResource("2_rkbax")
 shader_parameter/size = 0.2
-
-[sub_resource type="Theme" id="Theme_rkbax"]
-default_font_size = 24
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("hold_anchor", "camera")]
 script = ExtResource("1_4flbx")
@@ -42,17 +40,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DisplayText" type="RichTextLabel" parent="."]
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 710.0
-offset_top = -40.0
-offset_right = 951.0
-offset_bottom = 40.0
+offset_left = 224.0
+offset_top = -75.0
+offset_right = 813.0
+offset_bottom = 75.0
+grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_rkbax")
+theme = ExtResource("3_g1dw6")
 theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.121569, 0.121569, 0.196078, 1)
 theme_override_constants/shadow_outline_size = 6
 text = "Carrot
 Carrot"
