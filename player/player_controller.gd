@@ -110,7 +110,7 @@ func _input(event):
 func set_display_text(text: String):
 	
 	if text == "":
-		$DisplayBubble.visible = false
+		$DisplayText.visible = false
 	else:
-		$DisplayBubble/Text.text = text
-		$DisplayBubble.visible = true
+		$DisplayText.text = text
+		$DisplayText.visible = true

@@ -10,6 +10,7 @@ radius = 0.25
 
 [node name="MilkBottle" type="RigidBody3D"]
 script = ExtResource("1_ifq87")
+DEFAULT_DISPLAY_STRING = "Milk Bottle"
 SOUND_BUMP = ExtResource("2_ust7r")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]

@@ -82,7 +82,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315603, 0.313802, 1.011)
 money_cost = 0
 
 [node name="TurnipSeeds" parent="." instance=ExtResource("9_wse8f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.315603, 0.313802, -0.0987726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, 0.314, -0.099)
 money_cost = 30
 
 [node name="SellBox" parent="." instance=ExtResource("6_pkg7o")]

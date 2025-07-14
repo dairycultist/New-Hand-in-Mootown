@@ -28,6 +28,19 @@ of wooden stairs beside a short cliff-face is a big wooden platform with plenty
 of places to farm, all right beside the sell-box! Wooden boards inlaid into the
 dirt?
 
+TODO: simple starting-area map. slightly uneven terrain, a house, walls surrounding
+it all (bar a closed gate you can't really see through) and paths (slightly raised
+mesh of a repeating path texture with transparent edges so it's not part of the
+ground itself). no need to make beyond this for now
+
+3 mesh system: 1 visible, 1 collision, 1 grass placement
+
+https://dairycultist.itch.io/new-hand-in-mootown
+
+add onion and potato and that's probably good enough for the demo
+
+get a bubbly font
+
 ## Credits
 
-![skybox](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)
+![skybox made with AI that I should probably replace before DEMO release](https://sketchfab.com/3d-models/free-skybox-anime-sky-56a60c1d1e8b44eabff138374f996d8f)

@@ -1,5 +1,6 @@
 extends RigidBody3D
 
+@export var DEFAULT_DISPLAY_STRING: String = "UNUSED"
 @export var SOUND_BUMP: AudioStreamWAV
 
 var time_of_last_bump_sound := 0
@@ -16,7 +17,7 @@ func _ready() -> void:
 
 # used either when holding or, if not holding, looking
 func get_display_string() -> String:
-	return ""
+	return DEFAULT_DISPLAY_STRING
 
 func on_pickup():
 	linear_damp = 10
