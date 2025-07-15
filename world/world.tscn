@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=22 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
 [ext_resource type="Material" uid="uid://coywsghlbjeeu" path="res://world/grass_stone_terrain.tres" id="2_ocfjn"]
@@ -10,7 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d2ir544nj1vfy" path="res://objects/pickup/seeds/carrot/carrot_seeds.tscn" id="5_dwbse"]
 [ext_resource type="Texture2D" uid="uid://byygxrc8glpfi" path="res://world/grass.png" id="5_wse8f"]
 [ext_resource type="PackedScene" uid="uid://nmq6pcw2eklr" path="res://objects/static/sell_box.tscn" id="6_pkg7o"]
-[ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://theme.tres" id="7_ocfjn"]
+[ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://gui/theme.tres" id="7_ocfjn"]
+[ext_resource type="Script" uid="uid://bmc77dp0bsiwu" path="res://gui/scaler/text_scaler.gd" id="9_b2suy"]
 [ext_resource type="PackedScene" uid="uid://cbf357pngcxbs" path="res://objects/pickup/seeds/turnip/turnip_seeds.tscn" id="9_wse8f"]
 [ext_resource type="PackedScene" uid="uid://c057ydldlgr2x" path="res://objects/pickup/bottles/milk_bottle.tscn" id="11_ic0uy"]
 [ext_resource type="ArrayMesh" uid="uid://b0jo6jpjret68" path="res://world/world.obj" id="12_k3n1d"]
@@ -66,13 +67,15 @@ environment = SubResource("Environment_gbfbk")
 [node name="MoneyDisplay" type="RichTextLabel" parent="."]
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 255.0
-offset_bottom = 92.0
+offset_right = 301.0
+offset_bottom = 192.0
 theme = ExtResource("7_ocfjn")
 theme_override_colors/default_color = Color(0.993713, 0.576362, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.333333, 0.219608, 0.219608, 1)
 theme_override_constants/shadow_outline_size = 6
 text = "¢0"
+script = ExtResource("9_b2suy")
+_base_size = 80
 
 [node name="Player" parent="." instance=ExtResource("1_pkg7o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16335, 0, 0)

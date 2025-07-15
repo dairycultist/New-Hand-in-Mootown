@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bi28rmiiljbfw"
-path="res://.godot/imported/Game Bubble.ttf-a32964647e2d182a6afc35d9613bf83b.fontdata"
+path="res://.godot/imported/Game Bubble.ttf-db1d80b8f837c465165cb53783b95563.fontdata"
 
 [deps]
 
-source_file="res://Game Bubble.ttf"
-dest_files=["res://.godot/imported/Game Bubble.ttf-a32964647e2d182a6afc35d9613bf83b.fontdata"]
+source_file="res://gui/Game Bubble.ttf"
+dest_files=["res://.godot/imported/Game Bubble.ttf-db1d80b8f837c465165cb53783b95563.fontdata"]
 
 [params]
 

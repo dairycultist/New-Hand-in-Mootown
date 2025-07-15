@@ -1,9 +1,8 @@
-# FunGame
+# New Hand in Mootown
 
 [Itch.io page](https://dairycultist.itch.io/new-hand-in-mootown)
 
-In order to combat depression, I'm making a game that's fun (even if it's not
-perfect).
+In order to combat depression, I'm making a game that's fun (and imperfect).
 
 ## Notes
 

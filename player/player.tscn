@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3hlmqpkk3nid"]
+[gd_scene load_steps=7 format=3 uid="uid://d3hlmqpkk3nid"]
 
 [ext_resource type="Script" uid="uid://cho1b2afucinu" path="res://player/player_controller.gd" id="1_4flbx"]
-[ext_resource type="Shader" uid="uid://jssol36neqch" path="res://player/crosshair.gdshader" id="2_rkbax"]
-[ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://theme.tres" id="3_g1dw6"]
+[ext_resource type="Shader" uid="uid://jssol36neqch" path="res://gui/crosshair.gdshader" id="2_rkbax"]
+[ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://gui/theme.tres" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://bmc77dp0bsiwu" path="res://gui/scaler/text_scaler.gd" id="4_yw30f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv5m4"]
 
@@ -58,3 +59,4 @@ theme_override_constants/shadow_outline_size = 6
 text = "Carrot
 Carrot"
 vertical_alignment = 1
+script = ExtResource("4_yw30f")
