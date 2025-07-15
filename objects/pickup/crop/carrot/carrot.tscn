@@ -17,8 +17,8 @@ height = 0.634398
 
 [node name="Carrot" type="RigidBody3D"]
 script = ExtResource("1_44d0k")
-display_name = "Carrot"
 money_worth = 6
+DEFAULT_DISPLAY_STRING = "Carrot"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)

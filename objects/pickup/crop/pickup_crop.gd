@@ -1,11 +1,7 @@
-extends "res://objects/pickup/pickup_object.gd"
+extends "res://objects/pickup/pickup_sellable.gd"
 
 var SOUND_PLANT = preload("res://objects/pickup/crop/plant_crop.wav")
 var SOUND_HARVEST = preload("res://objects/pickup/crop/harvest_crop.wav")
-var SOUND_SELL = preload("res://objects/pickup/crop/sell_crop.wav")
-
-@export var display_name: String = ""
-@export var money_worth: int = 1
 
 var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
 var seconds_to_fully_grown: int
@@ -51,7 +47,7 @@ func _process(delta: float) -> void:
 func get_locked():
 	return axis_lock_linear_x
 
-func set_locked(value: bool):
+func set_locked(value: bool): # I wonder if freezing the rigidbody still updates its force
 	
 	axis_lock_linear_x = value
 	axis_lock_linear_y = value
@@ -59,9 +55,6 @@ func set_locked(value: bool):
 	axis_lock_angular_x = value
 	axis_lock_angular_y = value
 	axis_lock_angular_z = value
-
-func get_display_string() -> String:
-	return display_name
 
 func while_pickup(force: Vector3):
 	
@@ -73,13 +66,3 @@ func while_pickup(force: Vector3):
 		reparent(get_node("/root/World")) # un-parent from DirtPatch we're planted in
 		GlobalSound.play(SOUND_HARVEST) # play a pop sound
 		# spawn some dirt particles
-
-func on_bump(bumpee: Node3D):
-	
-	super.on_bump(bumpee)
-	
-	if bumpee.is_in_group("SellBox"):
-		
-		GlobalSound.play(SOUND_SELL)
-		GlobalData.attempt_change_money_by(money_worth)
-		queue_free()

@@ -17,8 +17,8 @@ height = 0.5
 
 [node name="Turnip" type="RigidBody3D"]
 script = ExtResource("1_g0pr0")
-display_name = "Turnip"
 money_worth = 15
+DEFAULT_DISPLAY_STRING = "Turnip"
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
