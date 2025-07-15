@@ -21,9 +21,11 @@ houses are!).
 Every product (crops, milk, and moo moos) can be sold for a base rate, but
 moo moos will often request you feed them a certain amount of a certain crop,
 rewarding you with bottles of their own milk which sells for much more than
-the crops they ate. Performing these requests improves your friendship with
-the moo moo, and once you've fully befriended a moo moo you can go inside
-their (uniquely designed!) house like in Stardew Valley.
+the crops they ate. Thus, even if a crop is no longer viable for selling,
+you'll still want to farm it when a moo moo is requesting it! Performing
+these requests improves your friendship with the moo moo, and once you've
+fully befriended a moo moo you can go inside their (uniquely designed!)
+house like in Stardew Valley.
 
 dialogue system
 
