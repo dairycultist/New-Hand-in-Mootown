@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbf357pngcxbs"]
+[gd_scene load_steps=8 format=3 uid="uid://cbf357pngcxbs"]
 
 [ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://objects/pickup/seeds/pickup_seeds.gd" id="1_ulcad"]
 [ext_resource type="PackedScene" uid="uid://b24krj14vem2o" path="res://objects/pickup/crop/turnip/turnip.tscn" id="2_ulcad"]
 [ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://objects/pickup/seeds/seeds.obj" id="3_cbam2"]
+[ext_resource type="AudioStream" uid="uid://xeylnsw3x7cp" path="res://objects/pickup/seeds/seeds.wav" id="3_lp4fr"]
 [ext_resource type="Texture2D" uid="uid://kejdv53yorl0" path="res://objects/pickup/seeds/turnip/turnip_seeds.png" id="4_ijicr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5npf"]
@@ -17,6 +18,7 @@ script = ExtResource("1_ulcad")
 money_cost = 0
 crop = ExtResource("2_ulcad")
 seed_name = "Turnip Seeds"
+SOUND_BUMP = ExtResource("3_lp4fr")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
