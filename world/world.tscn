@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=21 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="1_pkg7o"]
-[ext_resource type="Material" uid="uid://coywsghlbjeeu" path="res://world/world.tres" id="2_mad0u"]
+[ext_resource type="Material" uid="uid://coywsghlbjeeu" path="res://world/grass_stone_terrain.tres" id="2_ocfjn"]
+[ext_resource type="Material" uid="uid://cmp31ireyeb63" path="res://world/dirt_path.tres" id="3_dqqhb"]
 [ext_resource type="PackedScene" uid="uid://wqqdplkvrx2k" path="res://objects/static/seed_plot.tscn" id="4_gbfbk"]
 [ext_resource type="ArrayMesh" uid="uid://nfv5vw845bdt" path="res://world/grass.obj" id="4_ioo17"]
 [ext_resource type="Shader" uid="uid://bc6mjtagtwrw1" path="res://world/grass.gdshader" id="4_wse8f"]
@@ -44,10 +45,10 @@ sky = SubResource("Sky_pkg7o")
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="Mesh" type="MeshInstance3D" parent="Ground"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = ExtResource("12_k3n1d")
 skeleton = NodePath("../..")
-surface_material_override/0 = ExtResource("2_mad0u")
+surface_material_override/2 = ExtResource("2_ocfjn")
+surface_material_override/3 = ExtResource("3_dqqhb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
@@ -89,16 +90,16 @@ money_cost = 30
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26191, -2.38419e-07, 3.90114)
 
 [node name="SeedPlot" parent="." instance=ExtResource("4_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.76499, 0.133843, -4.17284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13026, -0.635814, -10.5318)
 
 [node name="SeedPlot2" parent="." instance=ExtResource("4_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3414, 0.133843, -3.81108)
+transform = Transform3D(0.894271, 0, 0.447525, 0, 1, 0, -0.447525, 0, 0.894271, -0.806519, -0.614895, -8.63787)
 
 [node name="SeedPlot3" parent="." instance=ExtResource("4_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7938, 0.133843, -2.28728)
+transform = Transform3D(0.985345, 0, -0.170571, 0, 1, 0, 0.170571, 0, 0.985345, 4.19971, 0.133843, 3.77414)
 
 [node name="SeedPlot4" parent="." instance=ExtResource("4_gbfbk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01595, 0.133843, -0.602133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87173, 0.133843, 3.89022)
 
 [node name="MilkBottle" parent="." instance=ExtResource("11_ic0uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246898, 0.3, 2.25605)

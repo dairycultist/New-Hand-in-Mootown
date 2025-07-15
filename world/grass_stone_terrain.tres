@@ -1,13 +1,13 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://coywsghlbjeeu"]
 
 [ext_resource type="Shader" uid="uid://dr2vcvgq8nycq" path="res://world/triplanar.gdshader" id="1_fiy6y"]
-[ext_resource type="Texture2D" uid="uid://t0qxmrbe8ifx" path="res://world/stone_wall.png" id="2_tddp6"]
-[ext_resource type="Texture2D" uid="uid://brei1ext67lac" path="res://world/grass_ground.png" id="3_3q43n"]
+[ext_resource type="Texture2D" uid="uid://t0qxmrbe8ifx" path="res://world/stone_wall.png" id="2_cuqkd"]
+[ext_resource type="Texture2D" uid="uid://brei1ext67lac" path="res://world/grass_ground.png" id="3_mafd0"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_fiy6y")
-shader_parameter/top_albedo = ExtResource("3_3q43n")
+shader_parameter/top_albedo = ExtResource("3_mafd0")
 shader_parameter/top_scale = 1.0
-shader_parameter/side_albedo = ExtResource("2_tddp6")
+shader_parameter/side_albedo = ExtResource("2_cuqkd")
 shader_parameter/side_scale = 0.7
