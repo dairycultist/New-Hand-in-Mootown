@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bytn4ccxygy7f"
-path="res://.godot/imported/clink.wav-93f114c67b3c71f498009361e87085b5.sample"
+path="res://.godot/imported/bottle.wav-bbe7bba1c7503ae2829dd075fe382174.sample"
 
 [deps]
 
-source_file="res://objects/pickup/bottles/clink.wav"
-dest_files=["res://.godot/imported/clink.wav-93f114c67b3c71f498009361e87085b5.sample"]
+source_file="res://objects/pickup/bottles/bottle.wav"
+dest_files=["res://.godot/imported/bottle.wav-bbe7bba1c7503ae2829dd075fe382174.sample"]
 
 [params]
 

@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://c057ydldlgr2x"]
 
-[ext_resource type="Script" uid="uid://cnwuf4biglmyg" path="res://objects/pickup/pickup_object.gd" id="1_ifq87"]
+[ext_resource type="Script" uid="uid://dwpox8nssuegp" path="res://objects/pickup/pickup_sellable.gd" id="1_qnxba"]
 [ext_resource type="ArrayMesh" uid="uid://dubok0dr26yok" path="res://objects/pickup/bottles/milk_bottle.obj" id="2_qnxba"]
-[ext_resource type="AudioStream" uid="uid://bytn4ccxygy7f" path="res://objects/pickup/bottles/clink.wav" id="2_ust7r"]
+[ext_resource type="AudioStream" uid="uid://bytn4ccxygy7f" path="res://objects/pickup/bottles/bottle.wav" id="2_ust7r"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_k3n1d"]
 height = 0.6
 radius = 0.25
 
 [node name="MilkBottle" type="RigidBody3D"]
-script = ExtResource("1_ifq87")
+script = ExtResource("1_qnxba")
+money_worth = 50
 DEFAULT_DISPLAY_STRING = "Milk Bottle"
 SOUND_BUMP = ExtResource("2_ust7r")
 
