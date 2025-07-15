@@ -1,10 +1,17 @@
 # FunGame
 
-In order to combat depression, I'm making a game that's fun (even if it's not perfect). It's a ranching/farming game, with low poly cowgals, crops, customization, and cozy animal crossing vibe.
+[Itch.io page](https://dairycultist.itch.io/new-hand-in-mootown)
 
-world is pre-hand-crafted, like slime rancher, with pre-determined regions for garden plots and stuff
+In order to combat depression, I'm making a game that's fun (even if it's not
+perfect).
 
-[jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
+## Notes
+
+Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
+
+Ranching/farming game, with low poly cowgals, crops, customization, and cozy vibe.
+
+World is pre-hand-crafted with pre-determined regions for garden plots and stuff.
 
 Tiny game about ranching moo moos. Different breeds have different max weights,
 favourite foods, amount of food necessary to become full, and amount of milk
@@ -35,9 +42,11 @@ ground itself). no need to make beyond this for now
 
 3 mesh system: 1 visible, 1 collision, 1 grass placement
 
-https://dairycultist.itch.io/new-hand-in-mootown
+paths are gonna have a spritesheet texture (straight, end, T, idk)
 
 add onion and potato and that's probably good enough for the demo
+
+[jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
 
 ## Credits
 
