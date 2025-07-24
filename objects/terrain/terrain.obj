@@ -1,6 +1,6 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib world.mtl
+mtllib terrain.mtl
 o Wood
 v -2.401490 2.590546 4.935215
 v -2.401490 2.848868 4.935215

@@ -6,6 +6,9 @@ In order to combat depression, I'm making a game that's fun (and imperfect).
 
 ## Notes
 
+**The moo moos run the shops. they are just 2D textures like paper mario, instead
+of full, cumbersome, 3D models. the game should come out at some point, OK?**
+
 Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
 
 Farming game, with low poly cowgals, crops, customization, and cozy vibe.

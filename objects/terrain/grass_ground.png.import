@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b66rif0rccsgv"
-path.s3tc="res://.godot/imported/clouds_anime_6k.jpg-f4015a7a5a7a6816914bbafe186bf64c.s3tc.ctex"
+uid="uid://brei1ext67lac"
+path.s3tc="res://.godot/imported/grass_ground.png-63a4003c5526556b61b8fe9502350ff7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://world/clouds_anime_6k.jpg"
-dest_files=["res://.godot/imported/clouds_anime_6k.jpg-f4015a7a5a7a6816914bbafe186bf64c.s3tc.ctex"]
+source_file="res://objects/terrain/grass_ground.png"
+dest_files=["res://.godot/imported/grass_ground.png-63a4003c5526556b61b8fe9502350ff7.s3tc.ctex"]
 
 [params]
 

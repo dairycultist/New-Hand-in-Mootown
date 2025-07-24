@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cmp31ireyeb63"]
 
-[ext_resource type="Texture2D" uid="uid://d23jsur8q522t" path="res://world/dirt_path.png" id="1_jiq4y"]
+[ext_resource type="Texture2D" uid="uid://d23jsur8q522t" path="res://objects/terrain/dirt_path.png" id="1_jiq4y"]
 
 [resource]
 transparency = 2
