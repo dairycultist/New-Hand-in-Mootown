@@ -8,7 +8,7 @@ func on_bump(bumpee: Node3D):
 	
 	super.on_bump(bumpee)
 	
-	if bumpee.is_in_group("SellBox"):
+	if bumpee.is_in_group("SellRegion"):
 		
 		GlobalSound.play(SOUND_SELL)
 		GlobalData.attempt_change_money_by(money_worth)

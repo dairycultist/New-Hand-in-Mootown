@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://do3rqtsjnn2dk"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://objects/static/market_stall/market_stall_jess.obj" id="1_5xn2m"]
+[ext_resource type="Script" uid="uid://d0dqu0do6m3on" path="res://objects/static/shop.gd" id="2_77edn"]
+[ext_resource type="PackedScene" uid="uid://d2ir544nj1vfy" path="res://objects/pickup/seeds/carrot/carrot_seeds.tscn" id="3_s01d4"]
+[ext_resource type="PackedScene" uid="uid://cbf357pngcxbs" path="res://objects/pickup/seeds/turnip/turnip_seeds.tscn" id="4_2tyko"]
+[ext_resource type="PackedScene" uid="uid://2lr8cswhx1x4" path="res://objects/pickup/seeds/sugar_cherry/sugar_cherry_seeds.tscn" id="5_0ptts"]
+[ext_resource type="Texture2D" uid="uid://in6gl3a8cy86" path="res://heftiest_moo_moo_ref.png" id="6_b3aoc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2lf6f"]
+size = Vector3(2.69434, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77edn"]
+size = Vector3(1.67444, 2.34641, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s01d4"]
+size = Vector3(2.47638, 1.07635, 4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iits"]
+albedo_texture = ExtResource("6_b3aoc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_oo54l"]
+size = Vector2(1.5, 1.5)
+orientation = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xn2m"]
+size = Vector3(0.79, 0.964, 3.64197)
+
+[node name="MarketStall" type="StaticBody3D"]
+transform = Transform3D(-0.189147, 0, -0.981949, 0, 1, 0, 0.981949, 0, -0.189147, 0, 0, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.505963, 0)
+mesh = ExtResource("1_5xn2m")
+skeleton = NodePath("../../Terrain")
+
+[node name="Collider1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, -2.68221e-07, 0, 1, 0, 2.68221e-07, 0, 1, -0.847168, 0, -1.49012e-08)
+shape = SubResource("BoxShape3D_2lf6f")
+
+[node name="Collider2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, -2.68221e-07, 0, 1, 0, 2.68221e-07, 0, 1, -1.35712, 1.67, -1.49012e-07)
+shape = SubResource("BoxShape3D_77edn")
+
+[node name="Collider3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, -2.68221e-07, 0, 1, 0, 2.68221e-07, 0, 1, -0.956146, 2.30503, -4.47035e-08)
+shape = SubResource("BoxShape3D_s01d4")
+
+[node name="CarrotShop" type="Node3D" parent="."]
+transform = Transform3D(0.999744, 0, 0.0226, 0, 1, 0, -0.0226, 0, 0.999744, 0.00935745, 0.796402, 1.46024)
+script = ExtResource("2_77edn")
+ITEM = ExtResource("3_s01d4")
+
+[node name="CarrotSeeds" parent="CarrotShop" instance=ExtResource("3_s01d4")]
+
+[node name="TurnipShop" type="Node3D" parent="."]
+transform = Transform3D(0.999961, 0, 0.00877891, 0, 1, 0, -0.00877891, 0, 0.999961, 0.0379772, 0.796, 0.629588)
+script = ExtResource("2_77edn")
+ITEM = ExtResource("4_2tyko")
+
+[node name="TurnipSeeds" parent="TurnipShop" instance=ExtResource("4_2tyko")]
+
+[node name="SugarCherryShop" type="Node3D" parent="."]
+transform = Transform3D(0.997769, 0, -0.0667614, 0, 1, 0, 0.0667614, 0, 0.997769, 0.104945, 0.796, -0.22611)
+script = ExtResource("2_77edn")
+ITEM = ExtResource("5_0ptts")
+
+[node name="SugarCherrySeeds" parent="SugarCherryShop" instance=ExtResource("5_0ptts")]
+
+[node name="MooMoo" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.546041, 0.913945, -1.00522)
+material_override = SubResource("StandardMaterial3D_7iits")
+mesh = SubResource("QuadMesh_oo54l")
+
+[node name="SellRegion" type="StaticBody3D" parent="." groups=["SellRegion"]]
+transform = Transform3D(1, 0, -7.45058e-08, 0, 1, 0, 7.45058e-08, 0, 1, -0.715571, 1.18027, -0.152758)
+
+[node name="Collider" type="CollisionShape3D" parent="SellRegion"]
+transform = Transform3D(0.999991, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, 0.999991, 1.78814e-07, -0.19812, 0.0900245)
+shape = SubResource("BoxShape3D_5xn2m")

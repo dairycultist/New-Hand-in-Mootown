@@ -1,6 +1,6 @@
 # Blender 4.4.3
 # www.blender.org
-mtllib sell_box.mtl
+mtllib crate.mtl
 o Cube.006
 v 0.874678 0.533205 0.872093
 v 0.881541 0.878630 0.871794
