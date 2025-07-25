@@ -5,7 +5,39 @@
 In order to combat depression, I'm making a game that's fun (and imperfect).
 The game should come out at some point, OK? So manage the scope, OK?
 
-## Notes
+Tiny game about farming in Mootown. Moo moos are all around -- running the shops
+or running errands -- whom you can talk to and befriend through food (if you can
+find them!).
+
+Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
+
+Farming game, with low poly cowgals, crops, customization, and cozy vibe.
+
+## Befriending moo moos
+
+dialogue system
+
+find out a moo moo's favourite food through dialogue, feed them enough til
+they're visibly chonky, they give you new, more intimate dialogue, and then ur
+done with them + you get a gift (bottles of their own milk, keys to new areas,
+etc). this encourages farming crops that may not otherwise be economically
+viable. moo moos will only
+eat their favourite food, and only until they're full (where you no longer have
+to feed them for the rest of the playthrough). at this point, shopkeep moo moos
+will instead pay you normally for their favourite crop that you give them.
+
+the goal of the game is to fully feed every single moo moo.
+
+You can earn a gate key for a region by befriending local moo moos, allowing
+you to access more land. befriending the shopkeep unlocks the next region (with
+different terrain, crops, shops, and moo moos), whereas befriending townsfolk
+may unlock you secret, optional areas (with extra farm plots or whatever). or
+they may just give you milk!
+
+maybe some moo moos have more elaborate quests you can help them out with (like
+finding their lost trowel) but that's an idea for later
+
+## Other Notes
 
 todo:
 1) finish starting area map (maybe some exploration area?) (slightly uneven terrain, a few tiny houses on stilts for you and the moo moos, closed gate)
@@ -13,45 +45,17 @@ todo:
 3) dialogue system + requests
 4) gate key (as part of a request reward!) + end of demo screen
 
-maybe instead of requests it's just "find out a moo moo's favourite food
-through dialogue, feed them enough til they're chonky, and ur done with them +
-you get a reward)
+3 mesh system: 1 visible, 1 collision, 1 grass placement
 
-Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
-
-Farming game, with low poly cowgals, crops, customization, and cozy vibe.
+paths are gonna have a spritesheet texture (straight, end, T, idk)
 
 World is pre-hand-crafted with pre-determined regions for garden plots and stuff.
 
-Tiny game about farming in Mootown. Moo moos are all around -- running the shops
-or running errands -- whom you can talk to and help out like Animal Crossing
-(if you can find them!).
-
-The moo moos run the shops. they are just 2D textures like paper mario, instead
-of full, cumbersome, 3D models.
-
-**Moo moo requests:**
-sell crops at the attending shopkeep, or buy seeds from her crate. selling crops
-the shopkeep is requesting (so she can eat them) gives double price, and reaching
-the request goal comes with a gift (usually bottles of their own milk). this
-encourages farming crops that may not otherwise be economically viable. performing
-these requests makes the moo moos visually chonkier and improves your friendship
-with the moo moo (as evident in new dialogue).
-
-dialogue system
+moo moos are just 2D textures like paper mario, instead of full, cumbersome, 3D models.
 
 Most interactions occur by picking up objects and bumping them into other
 objects. For example, a bag of 10 carrots seeds being placed onto an empty
 garden plot will plant a carrot in the plot, removing one seed from the bag.
-
-You can purchase a gate key which allows you to unlock more land. This either
-is simply to get more farm plots, or unlock new regions with different terrain,
-crops (via local shops), and moo moos.
-Unlocking new areas lets you access more houses, and thus meet new moo moos.
-
-3 mesh system: 1 visible, 1 collision, 1 grass placement
-
-paths are gonna have a spritesheet texture (straight, end, T, idk)
 
 crop ideas:
 - onion (twinion, grows two in one plot? yellow and red?)
