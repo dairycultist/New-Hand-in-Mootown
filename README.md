@@ -21,10 +21,12 @@ find out a moo moo's favourite food through dialogue, feed them enough til
 they're visibly chonky, they give you new, more intimate dialogue, and then ur
 done with them + you get a gift (bottles of their own milk, keys to new areas,
 etc). this encourages farming crops that may not otherwise be economically
-viable. moo moos will only
-eat their favourite food, and only until they're full (where you no longer have
-to feed them for the rest of the playthrough). at this point, shopkeep moo moos
-will instead pay you normally for their favourite crop that you give them.
+viable. moo moos will only eat their favourite food, and only until they're
+full (where you no longer have to feed them for the rest of the playthrough).
+
+you can decide whether to sell or gift to a shopkeep moo moo depending on whether
+you give them the item over the counter or behind the counter. "just swing by
+behind the counter if you wanna gift me anythin. my front-end is strictly business!"
 
 the goal of the game is to fully feed every single moo moo.
 
