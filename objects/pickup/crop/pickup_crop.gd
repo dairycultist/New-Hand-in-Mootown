@@ -7,6 +7,14 @@ var growth := 0.0 # 0->1 is growing, then becomes -1 once fully grown
 var seconds_to_fully_grown: int
 var mat: Material
 
+func _ready() -> void:
+	
+	super._ready()
+	
+	# duplicate the material so we can independently modify it
+	mat = $Mesh.get_surface_override_material(0).duplicate()
+	$Mesh.set_surface_override_material(0, mat)
+
 # also probably an "initialize_as_pickup"
 func initialize_as_planted():
 	
@@ -23,10 +31,6 @@ func initialize_as_planted():
 	)
 	
 	seconds_to_fully_grown = 5 # 60 * random.randi_range(3, 5)
-	
-	# duplicate the material so we can independently modify it
-	mat = $Mesh.get_surface_override_material(0).duplicate()
-	$Mesh.set_surface_override_material(0, mat)
 	
 	# disable the collider until fully grown
 	$Collider.set_deferred("disabled", true)
