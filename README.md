@@ -7,8 +7,15 @@ The game should come out at some point, OK? So manage the scope, OK?
 
 ## Notes
 
-The moo moos run the shops. they are just 2D textures like paper mario, instead
-of full, cumbersome, 3D models.
+todo:
+1) finish starting area map (maybe some exploration area?) (slightly uneven terrain, a few tiny houses on stilts for you and the moo moos, closed gate)
+2) draw Jess (and maybe another exploring moo moo)
+3) dialogue system + requests
+4) gate key (as part of a request reward!) + end of demo screen
+
+maybe instead of requests it's just "find out a moo moo's favourite food
+through dialogue, feed them enough til they're chonky, and ur done with them +
+you get a reward)
 
 Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
 
@@ -16,9 +23,12 @@ Farming game, with low poly cowgals, crops, customization, and cozy vibe.
 
 World is pre-hand-crafted with pre-determined regions for garden plots and stuff.
 
-Tiny game about farming in Mootown. Moo moos live in houses all around, whom
-you can talk to and help out like Animal Crossing (if you can find where their
-houses are!).
+Tiny game about farming in Mootown. Moo moos are all around -- running the shops
+or running errands -- whom you can talk to and help out like Animal Crossing
+(if you can find them!).
+
+The moo moos run the shops. they are just 2D textures like paper mario, instead
+of full, cumbersome, 3D models.
 
 **Moo moo requests:**
 sell crops at the attending shopkeep, or buy seeds from her crate. selling crops
@@ -39,16 +49,14 @@ is simply to get more farm plots, or unlock new regions with different terrain,
 crops (via local shops), and moo moos.
 Unlocking new areas lets you access more houses, and thus meet new moo moos.
 
-TODO: simple starting-area map. slightly uneven terrain, a house, walls surrounding
-it all (bar a closed gate you can't really see through) and paths (slightly raised
-mesh of a repeating path texture with transparent edges so it's not part of the
-ground itself). no need to make beyond this for now
-
 3 mesh system: 1 visible, 1 collision, 1 grass placement
 
 paths are gonna have a spritesheet texture (straight, end, T, idk)
 
-add onion and potato and that's probably good enough for the demo
+crop ideas:
+- onion (twinion, grows two in one plot? yellow and red?)
+- potato
+- cabbagecake (cabbage, but it's a cupcake)
 
 [jolt](https://godotengine.org/storage/releases/4.4/video/godot_jolt.webm)
 

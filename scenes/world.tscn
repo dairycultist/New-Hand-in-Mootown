@@ -115,4 +115,4 @@ expand_mode = 1
 script = ExtResource("17_7t5mc")
 
 [node name="MarketStall" parent="." instance=ExtResource("16_7t5mc")]
-transform = Transform3D(-0.189147, 0, -0.981949, 0, 1, 0, 0.981949, 0, -0.189147, 7.25937, -0.526024, -9.67582)
+transform = Transform3D(-0.317934, 0, -0.948113, 0, 1, 0, 0.948113, 0, -0.317934, 9.63765, -0.526024, -8.25329)
