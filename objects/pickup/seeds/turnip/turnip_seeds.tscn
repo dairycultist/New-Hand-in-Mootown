@@ -15,7 +15,7 @@ size = Vector3(0.42, 0.705, 0.6)
 
 [node name="TurnipSeeds" type="RigidBody3D"]
 script = ExtResource("1_ulcad")
-money_cost = 0
+money_cost = 30
 crop = ExtResource("2_ulcad")
 seed_name = "Turnip Seeds"
 SOUND_BUMP = ExtResource("3_lp4fr")
