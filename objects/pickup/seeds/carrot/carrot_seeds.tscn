@@ -14,7 +14,6 @@ metallic_specular = 0.0
 size = Vector3(0.42, 0.705, 0.6)
 
 [node name="CarrotSeeds" type="RigidBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.303364, 0)
 script = ExtResource("1_yit3m")
 crop = ExtResource("2_xxocj")
 seed_name = "Carrot Seeds"

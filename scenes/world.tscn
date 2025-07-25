@@ -107,7 +107,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7004, 0.3, 2.59233)
 [node name="MilkBottle3" parent="." instance=ExtResource("15_37qwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504405, 0.9, 2.40345)
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="DemoNotice" type="TextureRect" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -125,6 +125,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.448398, 0.313936, 1.20822)
 script = ExtResource("17_lakw3")
 ITEM = ExtResource("11_xgqkh")
 
-[node name="TurnipSeeds" parent="." instance=ExtResource("12_munwf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.475, 0.314, -0.099)
-money_cost = 30
+[node name="TurnipShop" type="Node3D" parent="."]
+transform = Transform3D(0.931037, 0, -0.364926, 0, 1, 0, 0.364926, 0, 0.931037, 0.709836, 0.313936, 0.0045557)
+script = ExtResource("17_lakw3")
+ITEM = ExtResource("12_munwf")
