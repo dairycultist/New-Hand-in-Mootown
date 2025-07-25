@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=31 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="ArrayMesh" uid="uid://b0jo6jpjret68" path="res://objects/terrain/terrain.obj" id="1_xo05s"]
 [ext_resource type="Material" uid="uid://coywsghlbjeeu" path="res://objects/terrain/grass_stone_terrain.tres" id="2_xo05s"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://byygxrc8glpfi" path="res://objects/grass/grass.png" id="5_pm21f"]
 [ext_resource type="ArrayMesh" uid="uid://nfv5vw845bdt" path="res://objects/grass/grass.obj" id="6_2lf6f"]
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="7_7iits"]
+[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://objects/static/market_stall/market_stall_jess.obj" id="7_oo54l"]
 [ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://gui/theme.tres" id="8_oo54l"]
 [ext_resource type="Script" uid="uid://bmc77dp0bsiwu" path="res://gui/scaler/text_scaler.gd" id="9_kpybi"]
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="10_ctatt"]
@@ -46,13 +47,6 @@ sky_material = SubResource("PanoramaSkyMaterial_dwbse")
 background_mode = 2
 sky = SubResource("Sky_pkg7o")
 
-[sub_resource type="BoxMesh" id="BoxMesh_pm21f"]
-size = Vector3(1, 1, 4)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pm21f"]
-albedo_color = Color(0.595851, 0.263908, 0.106928, 1)
-metallic_specular = 0.0
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lf6f"]
 size = Vector3(1, 1, 4)
 
@@ -60,7 +54,7 @@ size = Vector3(1, 1, 4)
 albedo_texture = ExtResource("20_2lf6f")
 
 [sub_resource type="QuadMesh" id="QuadMesh_oo54l"]
-size = Vector2(2, 2)
+size = Vector2(1.5, 1.5)
 orientation = 0
 
 [node name="World" type="Node3D"]
@@ -139,38 +133,39 @@ texture = ExtResource("16_dss4m")
 expand_mode = 1
 script = ExtResource("17_7t5mc")
 
-[node name="MarketStallPlaceholder" type="StaticBody3D" parent="."]
+[node name="MarketStall" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.189147, 0, -0.981949, 0, 1, 0, 0.981949, 0, -0.189147, 7.25937, -0.526024, -9.67582)
 
-[node name="Mesh" type="MeshInstance3D" parent="MarketStallPlaceholder"]
-mesh = SubResource("BoxMesh_pm21f")
-surface_material_override/0 = SubResource("StandardMaterial3D_pm21f")
+[node name="Mesh" type="MeshInstance3D" parent="MarketStall"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -0.505963, 0)
+mesh = ExtResource("7_oo54l")
+skeleton = NodePath("../../Terrain")
 
-[node name="Collider" type="CollisionShape3D" parent="MarketStallPlaceholder"]
+[node name="Collider" type="CollisionShape3D" parent="MarketStall"]
 shape = SubResource("BoxShape3D_2lf6f")
 
-[node name="CarrotShop" type="Node3D" parent="MarketStallPlaceholder"]
+[node name="CarrotShop" type="Node3D" parent="MarketStall"]
 transform = Transform3D(0.999744, 0, 0.0226, 0, 1, 0, -0.0226, 0, 0.999744, 0.00935745, 0.796402, 1.46024)
 script = ExtResource("17_lakw3")
 ITEM = ExtResource("11_xgqkh")
 
-[node name="CarrotSeeds" parent="MarketStallPlaceholder/CarrotShop" instance=ExtResource("11_xgqkh")]
+[node name="CarrotSeeds" parent="MarketStall/CarrotShop" instance=ExtResource("11_xgqkh")]
 
-[node name="TurnipShop" type="Node3D" parent="MarketStallPlaceholder"]
+[node name="TurnipShop" type="Node3D" parent="MarketStall"]
 transform = Transform3D(0.999961, 0, 0.00877891, 0, 1, 0, -0.00877891, 0, 0.999961, 0.0379772, 0.796, 0.629588)
 script = ExtResource("17_lakw3")
 ITEM = ExtResource("12_munwf")
 
-[node name="TurnipSeeds" parent="MarketStallPlaceholder/TurnipShop" instance=ExtResource("12_munwf")]
+[node name="TurnipSeeds" parent="MarketStall/TurnipShop" instance=ExtResource("12_munwf")]
 
-[node name="SugarCherryShop" type="Node3D" parent="MarketStallPlaceholder"]
+[node name="SugarCherryShop" type="Node3D" parent="MarketStall"]
 transform = Transform3D(0.997769, 0, -0.0667614, 0, 1, 0, 0.0667614, 0, 0.997769, 0.104945, 0.796, -0.22611)
 script = ExtResource("17_lakw3")
 ITEM = ExtResource("19_pm21f")
 
-[node name="SugarCherrySeeds" parent="MarketStallPlaceholder/SugarCherryShop" instance=ExtResource("19_pm21f")]
+[node name="SugarCherrySeeds" parent="MarketStall/SugarCherryShop" instance=ExtResource("19_pm21f")]
 
-[node name="MooMoo" type="MeshInstance3D" parent="MarketStallPlaceholder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20624, 1.13885, -1.07068)
+[node name="MooMoo" type="MeshInstance3D" parent="MarketStall"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.546041, 0.913945, -1.00522)
 material_override = SubResource("StandardMaterial3D_7iits")
 mesh = SubResource("QuadMesh_oo54l")
