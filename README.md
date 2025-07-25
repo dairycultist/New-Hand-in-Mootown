@@ -3,11 +3,12 @@
 [Itch.io page](https://dairycultist.itch.io/new-hand-in-mootown)
 
 In order to combat depression, I'm making a game that's fun (and imperfect).
+The game should come out at some point, OK? So manage the scope, OK?
 
 ## Notes
 
-**The moo moos run the shops. they are just 2D textures like paper mario, instead
-of full, cumbersome, 3D models. the game should come out at some point, OK?**
+The moo moos run the shops. they are just 2D textures like paper mario, instead
+of full, cumbersome, 3D models.
 
 Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
 
@@ -20,14 +21,12 @@ you can talk to and help out like Animal Crossing (if you can find where their
 houses are!).
 
 **Moo moo requests:**
-Every product (crops, milk, and moo moos) can be sold for a base rate, but
-moo moos will often request you feed them a certain amount of a certain crop,
-rewarding you with bottles of their own milk which sells for much more than
-the crops they ate. Thus, even if a crop is no longer viable for selling,
-you'll still want to farm it when a moo moo is requesting it! Performing
-these requests improves your friendship with the moo moo, and once you've
-fully befriended a moo moo you can go inside their (uniquely designed!)
-house like in Stardew Valley.
+sell crops at the attending shopkeep, or buy seeds from her crate. selling crops
+the shopkeep is requesting (so she can eat them) gives double price, and reaching
+the request goal comes with a gift (usually bottles of their own milk). this
+encourages farming crops that may not otherwise be economically viable. performing
+these requests makes the moo moos visually chonkier and improves your friendship
+with the moo moo (as evident in new dialogue).
 
 dialogue system
 

@@ -32,6 +32,7 @@ func on_pickup():
 		GlobalSound.play(SOUND_BUY)
 		freeze = false
 		bought = true
+		reparent(get_tree().root)
 
 func on_bump(bumpee: Node3D):
 	
