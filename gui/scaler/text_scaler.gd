@@ -10,4 +10,4 @@ func _ready() -> void:
 func _on_gui_scale_changed(new_scale: float):
 	
 	super._on_gui_scale_changed(new_scale)
-	theme.default_font_size = _base_size * new_scale
+	theme.default_font_size = (int) (_base_size * new_scale)

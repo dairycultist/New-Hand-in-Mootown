@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://dxivowedokkqs"]
+
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://pickup/crop/pickup_crop.gd" id="1_1q0e5"]
+[ext_resource type="ArrayMesh" uid="uid://cujohn2hefedf" path="res://pickup/crop/sugar_cherry/sugar_cherry.obj" id="1_uijfk"]
+[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://pickup/crop/crop.gdshader" id="3_m30il"]
+[ext_resource type="Texture2D" uid="uid://c31auphtt3288" path="res://pickup/crop/sugar_cherry/sugar_cherry.png" id="4_7kclq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_of6t7"]
+render_priority = 0
+shader = ExtResource("3_m30il")
+shader_parameter/tex = ExtResource("4_7kclq")
+shader_parameter/growth = 1.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1q0e5"]
+radius = 0.183726
+
+[node name="SugarCherry" type="RigidBody3D"]
+script = ExtResource("1_1q0e5")
+money_worth = 21
+DEFAULT_DISPLAY_STRING = "Sugar Cherry"
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("1_uijfk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_of6t7")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_1q0e5")

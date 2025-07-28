@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://cbf357pngcxbs"]
+
+[ext_resource type="Script" uid="uid://djqu4u5qd26wd" path="res://pickup/seeds/pickup_seeds.gd" id="1_ulcad"]
+[ext_resource type="PackedScene" uid="uid://b24krj14vem2o" path="res://pickup/crop/turnip/turnip.tscn" id="2_ulcad"]
+[ext_resource type="ArrayMesh" uid="uid://c7rhy02thfxhn" path="res://pickup/seeds/seeds.obj" id="3_cbam2"]
+[ext_resource type="AudioStream" uid="uid://xeylnsw3x7cp" path="res://pickup/seeds/seeds.wav" id="3_lp4fr"]
+[ext_resource type="Texture2D" uid="uid://kejdv53yorl0" path="res://pickup/seeds/turnip/turnip_seeds.png" id="4_ijicr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t5npf"]
+albedo_texture = ExtResource("4_ijicr")
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pkg7o"]
+size = Vector3(0.42, 0.705, 0.6)
+
+[node name="TurnipSeeds" type="RigidBody3D"]
+script = ExtResource("1_ulcad")
+money_cost = 30
+crop = ExtResource("2_ulcad")
+seed_name = "Turnip Seeds"
+SOUND_BUMP = ExtResource("3_lp4fr")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+mesh = ExtResource("3_cbam2")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_t5npf")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525879, 0)
+shape = SubResource("BoxShape3D_pkg7o")
