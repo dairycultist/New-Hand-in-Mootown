@@ -28,8 +28,14 @@ func while_pickup(_force: Vector3):
 func off_pickup():
 	linear_damp = 0
 
-func on_bump(_bumpee: Node3D):
+func on_bump(bumpee: Node3D):
 	
+	# tell the bumpee it has been bumped
+	if bumpee.has_method("on_bumped_by_pickup"):
+		
+		bumpee.on_bumped_by_pickup(self)
+	
+	# bump sound
 	if SOUND_BUMP and Time.get_ticks_msec() - time_of_last_bump_sound > 300:
 		
 		time_of_last_bump_sound = Time.get_ticks_msec()
