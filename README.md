@@ -13,6 +13,8 @@ Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
 
 Farming game, with low poly cowgals, crops, customization, and cozy vibe.
 
+Nighty will help by keeping you on track with one project
+
 ## Befriending moo moos
 
 dialogue system
@@ -46,6 +48,8 @@ todo:
 2) draw Jess (and maybe another exploring moo moo)
 3) dialogue system + requests
 4) gate key (as part of a request reward!) + end of demo screen
+
+https://docs.godotengine.org/en/stable/tutorials/3d/using_gridmaps.html
 
 3 mesh system: 1 visible, 1 collision, 1 grass placement
 
