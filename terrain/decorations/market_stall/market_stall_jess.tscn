@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://do3rqtsjnn2dk"]
 
-[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://objects/static/market_stall/market_stall_jess.obj" id="1_5xn2m"]
-[ext_resource type="Script" uid="uid://d0dqu0do6m3on" path="res://objects/static/shop.gd" id="2_77edn"]
+[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://terrain/decorations/market_stall/market_stall_jess.obj" id="1_5xn2m"]
+[ext_resource type="Script" uid="uid://d0dqu0do6m3on" path="res://terrain/decorations/shop.gd" id="2_77edn"]
 [ext_resource type="PackedScene" uid="uid://d2ir544nj1vfy" path="res://objects/pickup/seeds/carrot/carrot_seeds.tscn" id="3_s01d4"]
 [ext_resource type="PackedScene" uid="uid://cbf357pngcxbs" path="res://objects/pickup/seeds/turnip/turnip_seeds.tscn" id="4_2tyko"]
 [ext_resource type="PackedScene" uid="uid://2lr8cswhx1x4" path="res://objects/pickup/seeds/sugar_cherry/sugar_cherry_seeds.tscn" id="5_0ptts"]

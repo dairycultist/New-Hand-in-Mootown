@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwc41ftrbebqb"]
 
-[ext_resource type="ArrayMesh" uid="uid://br1c5ct5sjtaf" path="res://objects/terrain/grid/greybox.obj" id="1_ett8c"]
+[ext_resource type="ArrayMesh" uid="uid://br1c5ct5sjtaf" path="res://terrain/grid/greybox.obj" id="1_ett8c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_od1tv"]
 

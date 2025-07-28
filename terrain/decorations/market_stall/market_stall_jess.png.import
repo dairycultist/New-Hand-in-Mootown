@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byygxrc8glpfi"
-path.s3tc="res://.godot/imported/grass.png-5fd2cdc2768d5ba8598b30db414a1661.s3tc.ctex"
+uid="uid://k1jn636v1abo"
+path.s3tc="res://.godot/imported/market_stall_jess.png-cd39cc037309a5b221f1c6609010a1cf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/grass/grass.png"
-dest_files=["res://.godot/imported/grass.png-5fd2cdc2768d5ba8598b30db414a1661.s3tc.ctex"]
+source_file="res://terrain/decorations/market_stall/market_stall_jess.png"
+dest_files=["res://.godot/imported/market_stall_jess.png-cd39cc037309a5b221f1c6609010a1cf.s3tc.ctex"]
 
 [params]
 
