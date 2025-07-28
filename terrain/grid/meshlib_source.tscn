@@ -1,10 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwc41ftrbebqb"]
+[gd_scene load_steps=6 format=3 uid="uid://cwc41ftrbebqb"]
 
 [ext_resource type="ArrayMesh" uid="uid://br1c5ct5sjtaf" path="res://terrain/grid/greybox.obj" id="1_ett8c"]
+[ext_resource type="ArrayMesh" uid="uid://bga36vh8uafhy" path="res://terrain/grid/rocky_slope.obj" id="1_ij03r"]
+[ext_resource type="ArrayMesh" uid="uid://chvosx0ui8miu" path="res://terrain/grid/rocky_edge.obj" id="2_du4bk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ef2nh"]
+size = Vector3(1, 1, 1.4043)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_od1tv"]
 
 [node name="MeshlibSource" type="Node3D"]
+
+[node name="RockySlope" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2)
+mesh = ExtResource("1_ij03r")
+skeleton = NodePath("../RockyEdge")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RockySlope"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RockySlope/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.149258, -0.359259)
+shape = SubResource("BoxShape3D_ef2nh")
 
 [node name="Greybox" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_ett8c")
@@ -12,5 +28,15 @@ mesh = ExtResource("1_ett8c")
 [node name="StaticBody3D" type="StaticBody3D" parent="Greybox"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Greybox/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_od1tv")
+
+[node name="RockyEdge" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1)
+mesh = ExtResource("2_du4bk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RockyEdge"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RockyEdge/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_od1tv")
