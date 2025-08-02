@@ -12,7 +12,7 @@ extends CharacterBody3D
 
 var camera_pitch := 0.0
 var held_pickup : RigidBody3D
-var looking_pickup : RigidBody3D
+var looking : Node3D
 
 func _ready() -> void:
 	
@@ -28,11 +28,14 @@ func _process(delta: float) -> void:
 			PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
 		)
 		
-		if ray_result.has("collider") and ray_result.collider.is_in_group("Pickup"):
-			looking_pickup = ray_result.collider
-			set_display_text(looking_pickup.get_display_string())
+		if ray_result.has("collider"):
+			
+			looking = ray_result.collider
+			
+			if looking.has_method("get_display_string"):
+				set_display_text(looking.get_display_string())
 		else:
-			looking_pickup = null
+			looking = null
 			set_display_text("")
 	
 	else:
@@ -50,7 +53,7 @@ func _process(delta: float) -> void:
 		"shader_parameter/size",
 		lerpf(
 			$Crosshair.material.get("shader_parameter/size"), 
-			0.2 if held_pickup else 0.1 if looking_pickup else 0.02,
+			0.2 if held_pickup else 0.1 if looking else 0.02,
 			delta * 15
 		)
 	)
@@ -80,9 +83,13 @@ func _input(event):
 	if (event.is_action_pressed("interact")):
 		
 		# picking up stuff
-		if looking_pickup:
-			held_pickup = looking_pickup
-			held_pickup.on_pickup()
+		if looking:
+			
+			if looking.is_in_group("Pickup"):
+				held_pickup = looking
+				held_pickup.on_pickup()
+			elif looking.has_method("on_poke"):
+				looking.on_poke()
 	
 	if (event.is_action_released("interact")):
 		

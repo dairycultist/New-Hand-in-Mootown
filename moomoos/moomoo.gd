@@ -11,6 +11,12 @@ extends StaticBody3D
 
 @export var can_sell_to: bool
 
+func get_display_string() -> String:
+	return "Jess"
+
+func on_poke():
+	print("My name is Jess!")
+
 func on_bumped_by_pickup(pickup: Node3D):
 	
 	if can_sell_to and pickup.has_method("sell"):
