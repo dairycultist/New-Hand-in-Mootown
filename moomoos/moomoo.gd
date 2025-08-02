@@ -14,8 +14,8 @@ extends StaticBody3D
 func get_display_string() -> String:
 	return "Jess"
 
-func on_poke():
-	print("My name is Jess!")
+func on_poke(player: CharacterBody3D):
+	player.start_dialogue("res://moomoos/test_dialogue.txt")
 
 func on_bumped_by_pickup(pickup: Node3D):
 	

@@ -77,7 +77,6 @@ func _process(delta: float) -> void:
 		
 	move_and_slide()
 
-
 func _input(event):
 	
 	if (event.is_action_pressed("interact")):
@@ -89,7 +88,7 @@ func _input(event):
 				held_pickup = looking
 				held_pickup.on_pickup()
 			elif looking.has_method("on_poke"):
-				looking.on_poke()
+				looking.on_poke(self)
 	
 	if (event.is_action_released("interact")):
 		
@@ -121,3 +120,12 @@ func set_display_text(text: String):
 	else:
 		$DisplayText.text = text
 		$DisplayText.visible = true
+
+# TODO dialogue system (and input locking)
+# ensure txt files are exported with project: https://forum.godotengine.org/t/how-to-import-and-read-text/21936/4
+func start_dialogue(dialogue_path: String):
+	
+	var file = FileAccess.open(dialogue_path, FileAccess.READ)
+	
+	while not file.eof_reached():
+		print("> " + file.get_line())
