@@ -43,6 +43,12 @@ finding their lost trowel) but that's an idea for later
 
 ## Other Notes
 
+im gonna make the moo moo game have a dialogue system like undertale's which has the character portraits while the actual character in the world just kind of stands there
+
+dialogue portrait is for emotion, in-world sprite is for fat
+
+whether I like it or not, I gotta have the moo moos (that aren't shopkeeps) wander around and talk to other moo moos. not just because it makes the world seem more real, but because character interactions make your story
+
 todo:
 1) finish starting area map (maybe some exploration area?) (slightly uneven terrain, a few tiny houses on stilts for you and the moo moos, closed gate)
 2) draw Jess (and maybe another exploring moo moo)
