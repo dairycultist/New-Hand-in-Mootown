@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var CARROT := preload("res://crop_game/carrot/carrot.tscn")
+
 @export_group("Misc")
 @export var hold_anchor : Node3D
 @export var camera : Camera3D
@@ -12,7 +14,7 @@ extends CharacterBody3D
 
 var camera_pitch := 0.0
 var held_pickup : RigidBody3D
-var looking : Node3D
+var looking_info : Dictionary
 
 func _ready() -> void:
 	
@@ -24,18 +26,15 @@ func _process(delta: float) -> void:
 	# if not holding a pickup, check if we're looking at a pickup
 	if not held_pickup:
 	
-		var ray_result = get_world_3d().direct_space_state.intersect_ray(
-			PhysicsRayQueryParameters3D.create(camera.global_position, hold_anchor.global_position)
-		)
+		looking_info = get_world_3d().direct_space_state.intersect_ray(
+			PhysicsRayQueryParameters3D.create(
+				camera.global_position,
+				hold_anchor.global_position
+		))
 		
-		if ray_result.has("collider"):
-			
-			looking = ray_result.collider
-			
-			if looking.has_method("get_display_string"):
-				set_display_text(looking.get_display_string())
+		if not looking_info.is_empty() and looking_info.collider.has_method("get_display_string"):
+			set_display_text(looking_info.collider.get_display_string())
 		else:
-			looking = null
 			set_display_text("")
 	
 	else:
@@ -53,7 +52,7 @@ func _process(delta: float) -> void:
 		"shader_parameter/size",
 		lerpf(
 			$Crosshair.material.get("shader_parameter/size"), 
-			0.2 if held_pickup else 0.1 if looking else 0.02,
+			0.2 if held_pickup else 0.1 if not looking_info.is_empty() else 0.02,
 			delta * 15
 		)
 	)
@@ -82,13 +81,18 @@ func _input(event):
 	if (event.is_action_pressed("interact")):
 		
 		# picking up stuff
-		if looking:
+		if not looking_info.is_empty():
 			
-			if looking.is_in_group("Pickup"):
-				held_pickup = looking
+			if looking_info.collider.is_in_group("Pickup"):
+				held_pickup = looking_info.collider
 				held_pickup.on_pickup()
-			elif looking.has_method("on_poke"):
-				looking.on_poke(self)
+			elif looking_info.collider.has_method("on_poke"):
+				looking_info.collider.on_poke(self)
+			else:
+				# debug
+				var carrot := CARROT.instantiate()
+				get_tree().root.add_child(carrot)
+				carrot.position = looking_info.position
 	
 	if (event.is_action_released("interact")):
 		
@@ -121,7 +125,7 @@ func set_display_text(text: String):
 		$DisplayText.text = text
 		$DisplayText.visible = true
 
-# TODO dialogue system (and input locking)
+# TODO dialogue system (and input locking) (and maybe camera anchor to a certain point)
 # ensure txt files are exported with project: https://forum.godotengine.org/t/how-to-import-and-read-text/21936/4
 func start_dialogue(dialogue_path: String):
 	

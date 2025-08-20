@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dxivowedokkqs"]
 
-[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/pickup_crop.gd" id="1_1q0e5"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/crop.gd" id="1_1q0e5"]
 [ext_resource type="ArrayMesh" uid="uid://cujohn2hefedf" path="res://crop_game/sugar_cherry/sugar_cherry.obj" id="1_uijfk"]
 [ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/crop.gdshader" id="3_m30il"]
 [ext_resource type="Texture2D" uid="uid://c31auphtt3288" path="res://crop_game/sugar_cherry/sugar_cherry.png" id="4_7kclq"]
