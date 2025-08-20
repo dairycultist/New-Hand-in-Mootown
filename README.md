@@ -7,17 +7,6 @@ The game should come out at some point, OK? So manage the scope, OK?
 
 the gameloop is gonna be more focused ("farming" was a bit too broad)
 
-## Crop Game
-
-you plant one seed at a time, if there are no more possible moves, it goes
-FINISH! even if the timer isn't up yet. you need to make 3-or-more-in-a-rows to
-clear the planted seeds and get the crop from them. at the end you are given a
-bags of each crop you grew that you can sell.
-
-difficulty comes from 1) unique plot arrangements and 2) unique crop mechanics
-(local to the area). you can buy items from the shop to use during Crop Game
-to make it easier.
-
 ## Befriending moo moos
 
 dialogue system

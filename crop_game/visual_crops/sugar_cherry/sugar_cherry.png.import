@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc2qnvptsd1ex"
-path.s3tc="res://.godot/imported/plot_dirt.png-150a1523fa9e8f8eef9d71820870a633.s3tc.ctex"
+uid="uid://c31auphtt3288"
+path.s3tc="res://.godot/imported/sugar_cherry.png-a3a3eb798c65188b4b268c0258b23b6c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://crop_game/plot/plot_dirt.png"
-dest_files=["res://.godot/imported/plot_dirt.png-150a1523fa9e8f8eef9d71820870a633.s3tc.ctex"]
+source_file="res://crop_game/visual_crops/sugar_cherry/sugar_cherry.png"
+dest_files=["res://.godot/imported/sugar_cherry.png-a3a3eb798c65188b4b268c0258b23b6c.s3tc.ctex"]
 
 [params]
 

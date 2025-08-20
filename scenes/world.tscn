@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://ids5d4hu0cvp"]
+[gd_scene load_steps=17 format=3 uid="uid://ids5d4hu0cvp"]
 
 [ext_resource type="Texture2D" uid="uid://b66rif0rccsgv" path="res://clouds_anime_6k.jpg" id="7_7iits"]
 [ext_resource type="Theme" uid="uid://v7ph6n43mjoh" path="res://gui/theme.tres" id="8_oo54l"]
 [ext_resource type="Texture2D" uid="uid://bh46x3um2gewo" path="res://debug.png" id="9_7r4gi"]
 [ext_resource type="Script" uid="uid://bmc77dp0bsiwu" path="res://gui/scaler/text_scaler.gd" id="9_kpybi"]
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="10_ctatt"]
+[ext_resource type="Script" uid="uid://canv2vp4f3gxy" path="res://crop_game/game_plot.gd" id="10_w7kh3"]
 [ext_resource type="PackedScene" uid="uid://c057ydldlgr2x" path="res://pickup/bottles/milk_bottle.tscn" id="15_37qwj"]
 [ext_resource type="PackedScene" uid="uid://do3rqtsjnn2dk" path="res://terrain/market_stall/market_stall_jess.tscn" id="16_7t5mc"]
 [ext_resource type="Texture2D" uid="uid://27xmftejcy86" path="res://gui/demo_notice.png" id="16_dss4m"]
@@ -88,3 +89,6 @@ mesh = SubResource("PlaneMesh_7r4gi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("WorldBoundaryShape3D_w7kh3")
+
+[node name="GamePlot" type="StaticBody3D" parent="."]
+script = ExtResource("10_w7kh3")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://b24krj14vem2o"]
 
-[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/crops/crop.gd" id="1_g0pr0"]
-[ext_resource type="ArrayMesh" uid="uid://c3drxuyx66rl" path="res://crop_game/crops/turnip/turnip.obj" id="2_qifqs"]
-[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/crops/crop.gdshader" id="3_ydqad"]
-[ext_resource type="Texture2D" uid="uid://dbxswcwes51wf" path="res://crop_game/crops/turnip/turnip.png" id="4_u0b3j"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/visual_crops/crop.gd" id="1_g0pr0"]
+[ext_resource type="ArrayMesh" uid="uid://c3drxuyx66rl" path="res://crop_game/visual_crops/turnip/turnip.obj" id="2_qifqs"]
+[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/visual_crops/crop.gdshader" id="3_ydqad"]
+[ext_resource type="Texture2D" uid="uid://dbxswcwes51wf" path="res://crop_game/visual_crops/turnip/turnip.png" id="4_u0b3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s2jlb"]
 render_priority = 0

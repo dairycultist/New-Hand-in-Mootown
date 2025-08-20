@@ -1,9 +1,5 @@
 extends CharacterBody3D
 
-var CARROT := preload("res://crop_game/crops/carrot/carrot.tscn")
-var TURNIP := preload("res://crop_game/crops/turnip/turnip.tscn")
-var SUGAR_CHERRY := preload("res://crop_game/crops/sugar_cherry/sugar_cherry.tscn")
-
 @export_group("Misc")
 @export var hold_anchor : Node3D
 @export var camera : Camera3D
@@ -89,14 +85,7 @@ func _input(event):
 				held_pickup = looking_info.collider
 				held_pickup.on_pickup()
 			elif looking_info.collider.has_method("on_poke"):
-				looking_info.collider.on_poke(self)
-			else:
-				# debug
-				var crops = [CARROT, TURNIP, SUGAR_CHERRY]
-				crops.shuffle()
-				var crop = crops[0].instantiate()
-				get_tree().root.add_child(crop)
-				crop.position = looking_info.position
+				looking_info.collider.on_poke(self, looking_info)
 	
 	if (event.is_action_released("interact")):
 		

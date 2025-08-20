@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3c8pnec01dt6"]
 
-[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/crops/crop.gdshader" id="2_6vpml"]
-[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://crop_game/crops/carrot/carrot.obj" id="2_pob7t"]
-[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://crop_game/crops/carrot/carrot.png" id="4_0dqjg"]
-[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/crops/crop.gd" id="4_3wiry"]
+[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/visual_crops/crop.gdshader" id="2_6vpml"]
+[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://crop_game/visual_crops/carrot/carrot.obj" id="2_pob7t"]
+[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://crop_game/visual_crops/carrot/carrot.png" id="4_0dqjg"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/visual_crops/crop.gd" id="4_3wiry"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_di3xy"]
 render_priority = 0
