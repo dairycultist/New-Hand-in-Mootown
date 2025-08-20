@@ -8,7 +8,6 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.3
 @export var walk_speed := 5
 @export var jump_speed := 7
-@export var max_fall_speed := 32
 
 var camera_pitch := 0.0
 var held_pickup : RigidBody3D
@@ -46,6 +45,8 @@ func _process(delta: float) -> void:
 		# constantly update display text, since it can potentially change while holding
 		set_display_text(held_pickup.get_display_string())
 	
+	# TODO make crosshair dynamic-ness more appropriate (right now it's a small
+	# TODO circle even when just looking at the un-interactable floor)
 	$Crosshair.material.set(
 		"shader_parameter/size",
 		lerpf(
@@ -55,15 +56,9 @@ func _process(delta: float) -> void:
 		)
 	)
 	
-	# movement
+	# walking
 	var input_dir := Input.get_vector("walk_left", "walk_right", "walk_up", "walk_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		
-	if (velocity.y > -max_fall_speed):
-		velocity += get_gravity() * 2.5 * delta
-	
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_speed
 	
 	if direction:
 		velocity.x = direction.x * walk_speed
@@ -71,23 +66,30 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		velocity.z = 0
-		
+	
+	# gravity	
+	velocity += get_gravity() * 2.5 * delta
+	
+	# jumping
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = jump_speed
+	
 	move_and_slide()
 
 func _input(event):
 	
-	if (event.is_action_pressed("interact")):
-		
-		# picking up stuff
-		if not looking_info.is_empty():
+	if event.is_action_pressed("interact") and not looking_info.is_empty():
 			
+			# picking up stuff
 			if looking_info.collider.is_in_group("Pickup"):
 				held_pickup = looking_info.collider
 				held_pickup.on_pickup()
+			
+			# poking stuff
 			elif looking_info.collider.has_method("on_poke"):
 				looking_info.collider.on_poke(self, looking_info)
 	
-	if (event.is_action_released("interact")):
+	if event.is_action_released("interact"):
 		
 		# dropping stuff
 		if held_pickup:
