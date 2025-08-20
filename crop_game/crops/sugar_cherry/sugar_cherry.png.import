@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k1jn636v1abo"
-path.s3tc="res://.godot/imported/market_stall_jess.png-cd39cc037309a5b221f1c6609010a1cf.s3tc.ctex"
+uid="uid://c31auphtt3288"
+path.s3tc="res://.godot/imported/sugar_cherry.png-d0317221da1232a89b3e794011b2d3bd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://terrain/decorations/market_stall/market_stall_jess.png"
-dest_files=["res://.godot/imported/market_stall_jess.png-cd39cc037309a5b221f1c6609010a1cf.s3tc.ctex"]
+source_file="res://crop_game/crops/sugar_cherry/sugar_cherry.png"
+dest_files=["res://.godot/imported/sugar_cherry.png-d0317221da1232a89b3e794011b2d3bd.s3tc.ctex"]
 
 [params]
 

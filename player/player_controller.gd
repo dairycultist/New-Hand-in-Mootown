@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
-var CARROT := preload("res://crop_game/carrot/carrot.tscn")
+var CARROT := preload("res://crop_game/crops/carrot/carrot.tscn")
+var TURNIP := preload("res://crop_game/crops/turnip/turnip.tscn")
+var SUGAR_CHERRY := preload("res://crop_game/crops/sugar_cherry/sugar_cherry.tscn")
 
 @export_group("Misc")
 @export var hold_anchor : Node3D
@@ -90,9 +92,11 @@ func _input(event):
 				looking_info.collider.on_poke(self)
 			else:
 				# debug
-				var carrot := CARROT.instantiate()
-				get_tree().root.add_child(carrot)
-				carrot.position = looking_info.position
+				var crops = [CARROT, TURNIP, SUGAR_CHERRY]
+				crops.shuffle()
+				var crop = crops[0].instantiate()
+				get_tree().root.add_child(crop)
+				crop.position = looking_info.position
 	
 	if (event.is_action_released("interact")):
 		

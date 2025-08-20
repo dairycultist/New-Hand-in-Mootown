@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bmc77dp0bsiwu" path="res://gui/scaler/text_scaler.gd" id="9_kpybi"]
 [ext_resource type="PackedScene" uid="uid://d3hlmqpkk3nid" path="res://player/player.tscn" id="10_ctatt"]
 [ext_resource type="PackedScene" uid="uid://c057ydldlgr2x" path="res://pickup/bottles/milk_bottle.tscn" id="15_37qwj"]
-[ext_resource type="PackedScene" uid="uid://do3rqtsjnn2dk" path="res://terrain/decorations/market_stall/market_stall_jess.tscn" id="16_7t5mc"]
+[ext_resource type="PackedScene" uid="uid://do3rqtsjnn2dk" path="res://terrain/market_stall/market_stall_jess.tscn" id="16_7t5mc"]
 [ext_resource type="Texture2D" uid="uid://27xmftejcy86" path="res://gui/demo_notice.png" id="16_dss4m"]
 [ext_resource type="Script" uid="uid://1kd63cuvgm72" path="res://gui/scaler/texture_scaler.gd" id="17_7t5mc"]
 

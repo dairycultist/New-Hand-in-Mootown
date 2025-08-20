@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3c8pnec01dt6"]
+
+[ext_resource type="Shader" uid="uid://yjfc01aniw5w" path="res://crop_game/crops/crop.gdshader" id="2_6vpml"]
+[ext_resource type="ArrayMesh" uid="uid://ql0sbsn0mrrv" path="res://crop_game/crops/carrot/carrot.obj" id="2_pob7t"]
+[ext_resource type="Texture2D" uid="uid://cgti3bstqph40" path="res://crop_game/crops/carrot/carrot.png" id="4_0dqjg"]
+[ext_resource type="Script" uid="uid://bc0j3l3ud1ale" path="res://crop_game/crops/crop.gd" id="4_3wiry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_di3xy"]
+render_priority = 0
+shader = ExtResource("2_6vpml")
+shader_parameter/tex = ExtResource("4_0dqjg")
+shader_parameter/growth = 1.0
+
+[node name="Carrot" type="MeshInstance3D"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = ExtResource("2_pob7t")
+surface_material_override/0 = SubResource("ShaderMaterial_di3xy")
+script = ExtResource("4_3wiry")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://in6gl3a8cy86"
-path.s3tc="res://.godot/imported/heftiest_moo_moo_ref.png-55d21ef45d9218f6ba6dd7b85fdd76b8.s3tc.ctex"
+uid="uid://cc2qnvptsd1ex"
+path.s3tc="res://.godot/imported/plot_dirt.png-150a1523fa9e8f8eef9d71820870a633.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://heftiest_moo_moo_ref.png"
-dest_files=["res://.godot/imported/heftiest_moo_moo_ref.png-55d21ef45d9218f6ba6dd7b85fdd76b8.s3tc.ctex"]
+source_file="res://crop_game/plot/plot_dirt.png"
+dest_files=["res://.godot/imported/plot_dirt.png-150a1523fa9e8f8eef9d71820870a633.s3tc.ctex"]
 
 [params]
 

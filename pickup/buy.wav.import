@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b42182t6hiupt"
-path="res://.godot/imported/buy.wav-bedf682367ccbbb5e9006a013da3e287.sample"
+path="res://.godot/imported/buy.wav-c277e47190def464d8c7cc3c90df3cd1.sample"
 
 [deps]
 
-source_file="res://terrain/decorations/buy.wav"
-dest_files=["res://.godot/imported/buy.wav-bedf682367ccbbb5e9006a013da3e287.sample"]
+source_file="res://pickup/buy.wav"
+dest_files=["res://.godot/imported/buy.wav-c277e47190def464d8c7cc3c90df3cd1.sample"]
 
 [params]
 

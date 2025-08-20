@@ -2,26 +2,27 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqs1av4nykr1x"
-path="res://.godot/imported/crops.png-2771be6f61aaeaeeca7ebbec855676db.ctex"
+uid="uid://k1jn636v1abo"
+path.s3tc="res://.godot/imported/market_stall_jess.png-b6bedcbb730f1e881d37a15828710bb5.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://crops.png"
-dest_files=["res://.godot/imported/crops.png-2771be6f61aaeaeeca7ebbec855676db.ctex"]
+source_file="res://terrain/market_stall/market_stall_jess.png"
+dest_files=["res://.godot/imported/market_stall_jess.png-b6bedcbb730f1e881d37a15828710bb5.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=false
+mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

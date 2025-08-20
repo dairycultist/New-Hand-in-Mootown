@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://do3rqtsjnn2dk"]
 
-[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://terrain/decorations/market_stall/market_stall_jess.obj" id="1_5xn2m"]
+[ext_resource type="ArrayMesh" uid="uid://c4p5va5bofr2o" path="res://terrain/market_stall/market_stall_jess.obj" id="1_5xn2m"]
 [ext_resource type="Script" uid="uid://c1qk2x3m02rqp" path="res://moomoos/moomoo.gd" id="6_8nrnw"]
-[ext_resource type="Texture2D" uid="uid://in6gl3a8cy86" path="res://heftiest_moo_moo_ref.png" id="6_b3aoc"]
+[ext_resource type="Texture2D" uid="uid://in6gl3a8cy86" path="res://moomoos/heftiest_moo_moo_ref.png" id="6_b3aoc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2lf6f"]
 size = Vector3(2.69434, 1, 4)

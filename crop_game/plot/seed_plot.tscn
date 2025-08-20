@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wqqdplkvrx2k"]
 
-[ext_resource type="ArrayMesh" uid="uid://csvwqcqbp4p6m" path="res://terrain/decorations/plot/seed_plot.obj" id="1_671cu"]
-[ext_resource type="Texture2D" uid="uid://cc2qnvptsd1ex" path="res://terrain/decorations/plot/plot_dirt.png" id="2_og1by"]
+[ext_resource type="ArrayMesh" uid="uid://csvwqcqbp4p6m" path="res://crop_game/plot/seed_plot.obj" id="1_671cu"]
+[ext_resource type="Texture2D" uid="uid://cc2qnvptsd1ex" path="res://crop_game/plot/plot_dirt.png" id="2_og1by"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1by"]
 albedo_color = Color(0.583047, 0.583047, 0.583047, 1)
