@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://wqqdplkvrx2k"]
+
+[ext_resource type="ArrayMesh" uid="uid://csvwqcqbp4p6m" path="res://terrain/decorations/plot/seed_plot.obj" id="1_671cu"]
+[ext_resource type="Texture2D" uid="uid://cc2qnvptsd1ex" path="res://terrain/decorations/plot/plot_dirt.png" id="2_og1by"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_og1by"]
+albedo_color = Color(0.583047, 0.583047, 0.583047, 1)
+albedo_texture = ExtResource("2_og1by")
+metallic_specular = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfbk"]
+size = Vector3(1.21, 0.493, 1.19)
+
+[node name="SeedPlot" type="StaticBody3D" groups=["SeedPlot"]]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.124, 0)
+mesh = ExtResource("1_671cu")
+skeleton = NodePath("../..")
+surface_material_override/1 = SubResource("StandardMaterial3D_og1by")
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.254, 0)
+shape = SubResource("BoxShape3D_gbfbk")

@@ -1,6 +1,6 @@
 extends "res://pickup/pickup_object.gd"
 
-var SOUND_SELL = preload("res://pickup/crop/sell_crop.wav")
+var SOUND_SELL = preload("res://pickup/sell.wav")
 
 @export var money_worth: int = 1
 
