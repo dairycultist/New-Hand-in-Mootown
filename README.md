@@ -5,15 +5,18 @@
 In order to combat depression, I'm making a game that's fun (and imperfect).
 The game should come out at some point, OK? So manage the scope, OK?
 
-Tiny game about farming in Mootown. Moo moos are all around -- running the shops
-or running errands -- whom you can talk to and befriend through food (if you can
-find them!).
+the gameloop is gonna be more focused ("farming" was a bit too broad)
 
-Inspired by Slime Rancher, Animal Crossing, Stardew Valley, etc.
+## Crop Game
 
-Farming game, with low poly cowgals, crops, customization, and cozy vibe.
+you plant one seed at a time, if there are no more possible moves, it goes
+FINISH! even if the timer isn't up yet. you need to make 3-or-more-in-a-rows to
+clear the planted seeds and get the crop from them. at the end you are given a
+bags of each crop you grew that you can sell.
 
-Nighty will help by keeping you on track with one project
+difficulty comes from 1) unique plot arrangements and 2) unique crop mechanics
+(local to the area). you can buy items from the shop to use during Crop Game
+to make it easier.
 
 ## Befriending moo moos
 
@@ -22,20 +25,14 @@ dialogue system
 find out a moo moo's favourite food through dialogue, feed them enough til
 they're visibly chonky, they give you new, more intimate dialogue, and then ur
 done with them + you get a gift (bottles of their own milk, keys to new areas,
-etc). this encourages farming crops that may not otherwise be economically
-viable. moo moos will only eat their favourite food, and only until they're
+etc). moo moos will only eat their favourite food, and only until they're
 full (where you no longer have to feed them for the rest of the playthrough).
-
-you can decide whether to sell or gift to a shopkeep moo moo depending on whether
-you give them the item over the counter or behind the counter. "just swing by
-behind the counter if you wanna gift me anythin. my front-end is strictly business!"
-
 the goal of the game is to fully feed every single moo moo.
 
 You can earn a gate key for a region by befriending local moo moos, allowing
 you to access more land. befriending the shopkeep unlocks the next region (with
-different terrain, crops, shops, and moo moos), whereas befriending townsfolk
-may unlock you secret, optional areas (with extra farm plots or whatever). or
+different terrain, shops, and moo moos), whereas befriending townsfolk
+may unlock you secret, optional areas (with particularly difficult plots). or
 they may just give you milk!
 
 maybe some moo moos have more elaborate quests you can help them out with (like
@@ -43,11 +40,11 @@ finding their lost trowel) but that's an idea for later
 
 ## Other Notes
 
-im gonna make the moo moo game have a dialogue system like undertale's which has the character portraits while the actual character in the world just kind of stands there
+aesthetic character art https://www.youtube.com/watch?v=R5PVgKB3crY
 
-dialogue portrait is for emotion, in-world sprite is for fat
-
-whether I like it or not, I gotta have the moo moos (that aren't shopkeeps) wander around and talk to other moo moos. not just because it makes the world seem more real, but because character interactions make your story
+whether I like it or not, I gotta have the moo moos (that aren't shopkeeps)
+wander around and talk to other moo moos. not just because it makes the world
+seem more real, but because character interactions make your story
 
 todo:
 1) finish starting area map (maybe some exploration area?) (slightly uneven terrain, a few tiny houses on stilts for you and the moo moos, closed gate)
